@@ -18,7 +18,7 @@
 
 ## Validation results
 
-- Unit/integration tests (vitest): **13/13 passing** (`node ...\node_modules\vitest\vitest.mjs run`).
+- Unit/integration tests (vitest): **13/13 passing** (`node ...\node_modules/vitest/vitest.mjs run`).
 - Prisma: `prisma validate` OK, `prisma generate` OK, baseline migration created and applied via
   `prisma migrate dev`; `prisma migrate status` → **"Database schema is up to date!"**.
 - Production build (Next.js 16.4.6, Turbopack): **GREEN — `NEXT_BUILD10_EXIT=0`**.
@@ -31,8 +31,8 @@ Executed against local PostgreSQL 18 + running production server (port 3000):
 
 - [x] User can register and create a workspace — **PASS** (register → login → workspace created).
 - [x] User can create a research project — **PASS** (project created via API, `POST /api/projects` → 201).
-- [x] User can belong to multiple workspaces — **PENDING** (single workspace created in run).
-- [ ] Tenant isolation verified — **PENDING** (cross-workspace access test not yet executed).
+- [x] User can belong to multiple workspaces — **PASS** (second workspace created and listed).
+- [x] Tenant isolation verified — **PASS** (cross-workspace create attempt → `403 Forbidden`).
 - [ ] Demonstration research project can be created from seed data — **PENDING** (API-created project used instead).
 
 Dashboard rendering verified: authenticated `GET /dashboard` → **200** with "Run Discovery" present.
@@ -47,8 +47,8 @@ Dashboard rendering verified: authenticated `GET /dashboard` → **200** with "R
 
 - [x] User can register and create a workspace.
 - [x] User can create a research project.
-- [ ] User can belong to multiple workspaces.
-- [ ] Tenant isolation verified.
+- [x] User can belong to multiple workspaces.
+- [x] Tenant isolation verified.
 - [ ] Demonstration research project can be created from seed data.
 
-Status: **IN_PROGRESS** — app shell + migration baseline + dashboard UI GREEN; Phase 1 acceptance flow executed end-to-end with PASS on core steps; remaining acceptance items pending.
+Status: **IN_PROGRESS** — app shell + migration baseline + dashboard UI GREEN; Phase 1 acceptance flow executed end-to-end with PASS on core steps (register, workspace, project, dashboard, multi-workspace, tenant isolation); remaining acceptance item (seed demo project) pending.
