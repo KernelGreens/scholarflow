@@ -15,6 +15,8 @@
 - Pages: `/login`, `/register`, `/dashboard`, `/workspaces`,
   `/w/[workspaceSlug]/projects`, `/w/[workspaceSlug]/projects/new`,
   `/w/[workspaceSlug]/projects/[projectId]`, `/`.
+- Workspace creation UI (`CreateWorkspaceForm` on `/workspaces`) that calls
+  `POST /api/workspaces` and redirects into the new workspace's projects.
 
 ## Validation results
 
