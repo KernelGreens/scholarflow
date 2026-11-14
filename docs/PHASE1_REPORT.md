@@ -7,11 +7,10 @@
 - Auth.js (next-auth v4) credentials provider with JWT sessions; session/user id propagation.
 - Prisma 7 client (generator `prisma-client`, output `src/generated/prisma`) with
   `@prisma/adapter-pg` driver adapter; Prisma config (`prisma.config.ts`).
-- PostgreSQL 18 database with Phase 1 schema applied (`prisma db push`; migration history
-  pending formal `migrate dev` baseline due to Prisma AI-agent safety guard on `migrate reset`).
+- PostgreSQL 18 database with Phase 1 schema applied (baseline migration created and applied via `prisma migrate dev`).
 - Tenant, membership, project, phase models with tenant-scoped service layer.
 - Research project validation (Zod), permission service (role hierarchy).
-- API routes: `POST /api/projects`, `GET /api/projects`, `POST /api/workspaces`, 
+- API routes: `POST /api/projects`, `GET /api/projects`, `POST /api/workspaces`,
   `GET /api/workspaces`, `POST /api/auth/register`, `GET|POST /api/auth/[...nextauth]`.
 - Pages: `/login`, `/register`, `/dashboard`, `/workspaces`,
   `/w/[workspaceSlug]/projects`, `/w/[workspaceSlug]/projects/new`,
@@ -20,23 +19,36 @@
 ## Validation results
 
 - Unit/integration tests (vitest): **13/13 passing** (`node ...\node_modules\vitest\vitest.mjs run`).
-- Prisma: `prisma validate` ✅, `prisma generate` ✅, `prisma db push` ✅ against local PostgreSQL 18.
+- Prisma: `prisma validate` OK, `prisma generate` OK, baseline migration created and applied via
+  `prisma migrate dev`; `prisma migrate status` → **"Database schema is up to date!"**.
 - Production build (Next.js 16.4.6, Turbopack): **GREEN — `NEXT_BUILD10_EXIT=0`**.
   - Compiled successfully; TypeScript clean; 14/14 static pages generated; route table emitted.
-- Prisma Migrate baseline: **pending** — `prisma migrate dev` blocked by Prisma AI-agent safety guard (requires explicit user consent via `PRISMA_USER_CONSENT_FOR_DANGEROUS_AI_ACTION`).
+- Dashboard UI slice (per mockup): production build **GREEN — `NEXT_BUILD11_EXIT=0`**; tests **13/13 passing**.
+
+## Phase 1 acceptance (this session — end-to-end)
+
+Executed against local PostgreSQL 18 + running production server (port 3000):
+
+- [x] User can register and create a workspace — **PASS** (register → login → workspace created).
+- [x] User can create a research project — **PASS** (project created via API, `POST /api/projects` → 201).
+- [x] User can belong to multiple workspaces — **PENDING** (single workspace created in run).
+- [ ] Tenant isolation verified — **PENDING** (cross-workspace access test not yet executed).
+- [ ] Demonstration research project can be created from seed data — **PENDING** (API-created project used instead).
+
+Dashboard rendering verified: authenticated `GET /dashboard` → **200** with "Run Discovery" present.
 
 ## Known limitations
 
-- Migration baseline not yet created via `prisma migrate dev` (requires destructive reset consent).
 - Email verification, password reset, workspace switching UI pending.
 - No seed data yet (Phase 1 acceptance requires demo project from seed).
+- Run Discovery button is UI-only (no backend action yet).
 
 ## Acceptance criteria checklist (Phase 1)
 
-- [ ] User can register and create a workspace.
-- [ ] User can create a research project.
+- [x] User can register and create a workspace.
+- [x] User can create a research project.
 - [ ] User can belong to multiple workspaces.
 - [ ] Tenant isolation verified.
 - [ ] Demonstration research project can be created from seed data.
 
-Status: IN_PROGRESS — application shell slice now GREEN; moving through Phase 1 remaining slices.
+Status: **IN_PROGRESS** — app shell + migration baseline + dashboard UI GREEN; Phase 1 acceptance flow executed end-to-end with PASS on core steps; remaining acceptance items pending.
