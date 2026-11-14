@@ -2,6 +2,7 @@ import { connection } from 'next/server';
 import { redirect } from 'next/navigation';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import { CreateWorkspaceForm } from '@/components/research/CreateWorkspaceForm';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const instant = false;
@@ -23,6 +24,7 @@ export default async function WorkspacesPage() {
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-12">
+      <CreateWorkspaceForm />
       <Card>
         <CardHeader>
           <CardTitle>Research workspaces</CardTitle>
