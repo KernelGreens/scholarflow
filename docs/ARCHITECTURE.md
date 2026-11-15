@@ -50,7 +50,7 @@ Implemented or planned for Phase 1:
 | Decision | Choice | Rationale |
 |---|---|---|
 | Monolith | Next.js modular monolith | Fast MVP delivery; avoids premature decomposition. |
-| DB | Shared PG schema, explicit tenantId | Simple SaaS isolation phase; RLS optional later. |
+| DB | Shared PG schema, explicit tenantId | Simple SaaS isolation phase; RLS enabled via tenant-scoped policies. |
 | Auth | Auth.js vNext | Provider-agnostic, fits App Router. |
 | ORM | Prisma 7 | Required by specification. |
 | Automation | n8n (external) + internal callback API | n8n stays execution engine, not system of record. |
@@ -74,6 +74,8 @@ See `docs/N8N_INTEGRATION.md`.
 - Cross-tenant attempts return 404-style not-found responses to avoid existence
   leaks.
 - Object storage keys namespaced by tenant.
+- Row Level Security enabled in PostgreSQL on tenant-scoped tables with tenant-scoped
+  policies (`tenant_isolation_*`) evaluated against the per-request user context.
 
 ## 8. Security baseline
 

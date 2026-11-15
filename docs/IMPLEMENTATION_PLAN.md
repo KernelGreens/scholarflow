@@ -62,7 +62,8 @@ the previous phase's exit criteria are met.
 - Auth provider strategy (Auth.js credentials + email magic link vs. external IdP).
 - Default AI provider and budget ceilings.
 - Default plan catalogue and pricing (Phase 7).
-- RLS adoption timing and migration strategy.
+- ~~RLS adoption timing and migration strategy~~ — resolved in Phase 1: RLS enabled via tenant-scoped
+  policies (`20261115120000_enable_row_level_security`).
 
 ## Risks and mitigations (Phase 0 assessment)
 

@@ -28,6 +28,12 @@ security, AI data handling, n8n callbacks, and audit requirements.
 - Cross-tenant access returns not-found semantics (no existence leak).
 - Object storage keys scoped by tenant.
 - Background jobs carry tenant context and must re-validate membership before side effects.
+- Row Level Security enabled in PostgreSQL on all tenant-scoped tables
+  (`Tenant`, `TenantMembership`, `Invitation`, `ProjectMembership`, `ResearchProject`,
+  `ResearchPhase`) via `ENABLE ROW LEVEL SECURITY` plus tenant-scoped policies
+  (`tenant_isolation_*`). Access is evaluated against the per-request user context
+  (`current_setting('app.current_user_id', ...)`). `FORCE ROW LEVEL SECURITY` and wiring the
+  per-request context into the Prisma connection remain future work.
 
 ## 5. Web application security
 
@@ -69,5 +75,6 @@ security, AI data handling, n8n callbacks, and audit requirements.
 ## 11. Known limitations
 
 - Rate limiting backend (Redis) integration pending.
-- RLS not yet enabled in PostgreSQL (planned for later phase with policy testing).
+- RLS `FORCE ROW LEVEL SECURITY` and per-request user-context wiring into the Prisma connection
+  are pending (owner-bypass currently applies to the migration/Prisma connection user).
 - Support-admin elevated access design still open.

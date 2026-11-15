@@ -40,6 +40,8 @@
   and workspaces rendered as professional cards (name, slug, type badge, project count, open action),
   plus session card with sign-out. (Later refined: sign-out button is now small and placed at top
   right of the page header; session card removed.)
+- Row Level Security enabled in PostgreSQL on tenant-scoped tables via migration
+  `20261115120000_enable_row_level_security` (policies: `tenant_isolation_*`).
 
 ## Validation results
 
@@ -70,6 +72,9 @@ Dashboard rendering verified: authenticated `GET /dashboard` → **200** with "R
 - Run Discovery button is UI-only (no backend action yet).
 - Workspace management: users with a single workspace auto-access it; multi-workspace users can switch
   via clickable workspace entries on `/workspaces`.
+- RLS enabled in PostgreSQL via tenant-scoped policies (`tenant_isolation_*`, migration
+  `20261115120000_enable_row_level_security`); `FORCE ROW LEVEL SECURITY` and per-request user-context
+  wiring into the Prisma connection are pending.
 
 ## Acceptance criteria checklist (Phase 1)
 
