@@ -6,7 +6,7 @@ import { prisma } from '@/lib/prisma';
 import { CreateWorkspaceForm } from '@/components/research/CreateWorkspaceForm';
 import { SignOutButton } from '@/components/auth/SignOutButton';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 
 export const instant = false;
 
@@ -27,12 +27,15 @@ export default async function WorkspacesPage() {
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-12">
-      <header className="mb-10">
-        <h1 className="text-3xl font-semibold tracking-tight">Research workspaces</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Personal, group, or institutional research workspaces you belong to. Switch between
-          workspaces to continue your research.
-        </p>
+      <header className="mb-10 flex items-start justify-between gap-4">
+        <div>
+          <h1 className="text-3xl font-semibold tracking-tight">Research workspaces</h1>
+          <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+            Personal, group, or institutional research workspaces you belong to. Switch between
+            workspaces to continue your research.
+          </p>
+        </div>
+        <SignOutButton />
       </header>
 
       <div className="space-y-10">
@@ -80,16 +83,6 @@ export default async function WorkspacesPage() {
             </div>
           )}
         </section>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Session</CardTitle>
-            <CardDescription>End the current ScholarFlow AI session.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <SignOutButton />
-          </CardContent>
-        </Card>
       </div>
     </main>
   );
