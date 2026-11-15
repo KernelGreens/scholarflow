@@ -29,6 +29,8 @@
 - Landing page implemented at `/` per UI Flow Spec Page 02A (public pages / landing interface):
   hero, features, how it works, pricing, about, CTAs.
 - Login and register pages now include a "Back to the landing page" link pointing to `/`.
+- Post-auth flow now routes to the Workspace Management dashboard (`/workspaces`) instead of the
+  project dashboard; workspace list entries are now clickable for switching.
 
 ## Validation results
 
