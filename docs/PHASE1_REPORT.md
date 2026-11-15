@@ -19,6 +19,8 @@
   `POST /api/workspaces` and redirects into the new workspace's projects.
 - Project dashboard AI action: "Run Discovery" added to `/w/[workspaceSlug]/projects/[projectId]`
   (AI Workflow Intelligence card; backend trigger to be wired in Phase 2 Discovery).
+- Workspace switcher added to dashboard sidebar listing authorised workspaces, linking into
+  `/w/[slug]/projects`.
 
 ## Validation results
 
