@@ -36,6 +36,9 @@
   authenticated pages: `/workspaces`, `/w/[workspaceSlug]/projects`,
   `/w/[workspaceSlug]/projects/[projectId]`, `/w/[workspaceSlug]/projects/new`.
   (Public pages `/`, `/login`, `/register` intentionally do not show it.)
+- Workspace management page (`/workspaces`) redesigned: page header, "Create research workspace" form,
+  and workspaces rendered as professional cards (name, slug, type badge, project count, open action),
+  plus session card with sign-out.
 
 ## Validation results
 
