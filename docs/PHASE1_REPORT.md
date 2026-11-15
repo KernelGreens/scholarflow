@@ -28,7 +28,7 @@
   (`/w/[slug]/projects/[projectId]`), or to `/workspaces` when no project exists.
 - Landing page implemented at `/` per UI Flow Spec Page 02A (public pages / landing interface):
   hero, features, how it works, pricing, about, CTAs.
-- Login and register pages now include a "Back to your research? Go to dashboard" link to `/dashboard`.
+- Login and register pages now include a "Back to the landing page" link pointing to `/`.
 
 ## Validation results
 
