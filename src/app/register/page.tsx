@@ -87,6 +87,12 @@ export default function RegisterPage() {
               Sign in
             </a>
           </p>
+          <p className="mt-4 text-center text-sm text-muted-foreground">
+            Back to your research?{' '}
+            <a href="/dashboard" className="font-medium text-primary underline-offset-4 hover:underline">
+              Go to dashboard
+            </a>
+          </p>
         </CardContent>
       </Card>
     </main>
