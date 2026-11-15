@@ -21,6 +21,8 @@
   (AI Workflow Intelligence card; backend trigger to be wired in Phase 2 Discovery).
 - Workspace switcher added to dashboard sidebar listing authorised workspaces, linking into
   `/w/[slug]/projects`.
+- Project dashboard redesign per UI Flow Spec Section 05A: added Research modules section alongside
+  the AI Workflow Intelligence / Run Discovery action.
 
 ## Validation results
 
