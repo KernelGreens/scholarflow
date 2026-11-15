@@ -38,7 +38,8 @@
   (Public pages `/`, `/login`, `/register` intentionally do not show it.)
 - Workspace management page (`/workspaces`) redesigned: page header, "Create research workspace" form,
   and workspaces rendered as professional cards (name, slug, type badge, project count, open action),
-  plus session card with sign-out.
+  plus session card with sign-out. (Later refined: sign-out button is now small and placed at top
+  right of the page header; session card removed.)
 
 ## Validation results
 
