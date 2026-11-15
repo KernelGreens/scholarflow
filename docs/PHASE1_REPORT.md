@@ -42,6 +42,8 @@
   right of the page header; session card removed.)
 - Row Level Security enabled in PostgreSQL on tenant-scoped tables via migration
   `20261115120000_enable_row_level_security` (policies: `tenant_isolation_*`).
+- Workspace projects page (`/w/[workspaceSlug]/projects`) refined: top-right action row with
+  **New project** button + small **Sign out** button; bottom Session card removed.
 
 ## Validation results
 
