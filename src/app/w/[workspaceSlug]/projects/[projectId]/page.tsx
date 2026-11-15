@@ -12,6 +12,18 @@ interface ProjectDetailPageProps {
   params: Promise<{ workspaceSlug: string; projectId: string }>;
 }
 
+const RESEARCH_MODULES = [
+  { name: 'Discovery', description: 'AI literature discovery and domain summaries', active: true },
+  { name: 'Literature', description: 'Permanent publication records and screening' },
+  { name: 'Evidence', description: 'Evidence matrix and verification' },
+  { name: 'Positioning', description: 'Landscape, gaps and novelty' },
+  { name: 'Design', description: 'Research design and framework' },
+  { name: 'Writing', description: 'Writing studio and submissions' },
+  { name: 'Reviews', description: 'Supervisor reviews and approvals' },
+  { name: 'Runs', description: 'Automation runs and results' },
+  { name: 'Settings', description: 'Project settings' },
+];
+
 export default async function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   await connection();
   const { workspaceSlug, projectId } = await params;
@@ -81,6 +93,26 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           <Button className="h-9 rounded-md bg-[#2563eb] px-4 text-sm font-medium text-white hover:bg-[#2563eb]/90">
             Run Discovery
           </Button>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Research modules</CardTitle>
+          <CardDescription>
+            Modules in the ScholarFlow AI research workflow. Discovery is executed through AI Workflow
+            Intelligence.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {RESEARCH_MODULES.map((module) => (
+              <li key={module.name} className="rounded-md border p-3">
+                <p className="text-sm font-medium">{module.name}</p>
+                <p className="text-xs text-muted-foreground">{module.description}</p>
+              </li>
+            ))}
+          </ul>
         </CardContent>
       </Card>
     </main>
