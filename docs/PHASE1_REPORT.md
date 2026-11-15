@@ -17,6 +17,8 @@
   `/w/[workspaceSlug]/projects/[projectId]`, `/`.
 - Workspace creation UI (`CreateWorkspaceForm` on `/workspaces`) that calls
   `POST /api/workspaces` and redirects into the new workspace's projects.
+- Project dashboard AI action: "Run Discovery" added to `/w/[workspaceSlug]/projects/[projectId]`
+  (AI Workflow Intelligence card; backend trigger to be wired in Phase 2 Discovery).
 
 ## Validation results
 
