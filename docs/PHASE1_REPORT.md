@@ -24,6 +24,8 @@
 - Project dashboard redesign per UI Flow Spec Section 05A: added Research modules section alongside
   the AI Workflow Intelligence / Run Discovery action, then refined to module-based navigation
   (sidebar with modules, main area renders the selected module).
+- Dashboard adaptation: `/dashboard` now redirects to the user's first project dashboard
+  (`/w/[slug]/projects/[projectId]`), or to `/workspaces` when no project exists.
 
 ## Validation results
 
