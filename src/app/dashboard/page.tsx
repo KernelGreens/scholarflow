@@ -2,6 +2,7 @@ import { connection } from 'next/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { auth } from '@/lib/auth';
+import { prisma } from '@/lib/prisma';
 import { Button } from '@/components/ui/button';
 
 export const instant = false;
@@ -66,6 +67,12 @@ export default async function DashboardPage() {
       active ? 'bg-[#294c78] text-white' : 'text-[#cbd5e1] hover:bg-white/10'
     }`;
 
+  const memberships = await prisma.tenantMembership.findMany({
+    where: { userId: user.id },
+    include: { tenant: true },
+  });
+  const workspaces = memberships.map((membership) => membership.tenant);
+
   return (
     <div className="flex min-h-screen bg-[#f8fafc]">
       <aside className="flex w-[168px] shrink-0 flex-col bg-[#14243b] text-white">
@@ -73,6 +80,23 @@ export default async function DashboardPage() {
           <p className="text-sm font-bold text-white">ScholarFlow AI</p>
           <p className="mt-1 text-[8px] text-[#94a3b8]">RESEARCH WORKSPACE</p>
         </div>
+        {workspaces.length > 0 ? (
+          <div className="mt-8 px-3">
+            <p className="px-2 pb-2 text-[8px] font-medium uppercase tracking-wide text-[#94a3b8]">Workspace</p>
+            <ul className="space-y-1">
+              {workspaces.map((workspace) => (
+                <li key={workspace.id}>
+                  <Link
+                    href={`/w/${workspace.slug}/projects`}
+                    className="block rounded-md px-2.5 py-2 text-[10px] font-medium text-[#cbd5e1] transition-colors hover:bg-white/10"
+                  >
+                    {workspace.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
         <nav className="mt-10 flex flex-1 flex-col gap-1 px-3" aria-label="Research workspace">
           {NAV_ITEMS.map((item) => {
             const className = navItemClassName(Boolean(item.active));
