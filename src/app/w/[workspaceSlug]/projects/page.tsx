@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { SignOutButton } from '@/components/auth/SignOutButton';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 export const instant = false;
 
@@ -43,9 +44,12 @@ export default async function WorkspaceProjectsPage({ params }: WorkspaceProject
           <h1 className="text-2xl font-semibold tracking-tight">Research projects</h1>
           <p className="text-sm text-muted-foreground">Workspace: {tenant.name}</p>
         </div>
-        <Link href={`/w/${tenant.slug}/projects/new`} className="text-sm font-medium text-primary underline-offset-4 hover:underline">
-          New project
-        </Link>
+        <div className="flex items-center gap-3">
+          <Button asChild size="sm">
+            <Link href={`/w/${tenant.slug}/projects/new`}>New project</Link>
+          </Button>
+          <SignOutButton />
+        </div>
       </div>
 
       {projects.length === 0 ? (
@@ -68,16 +72,6 @@ export default async function WorkspaceProjectsPage({ params }: WorkspaceProject
           ))}
         </div>
       )}
-
-      <Card className="mt-6">
-        <CardHeader>
-          <CardTitle>Session</CardTitle>
-          <CardDescription>End the current ScholarFlow AI session.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <SignOutButton />
-        </CardContent>
-      </Card>
     </main>
   );
 }
