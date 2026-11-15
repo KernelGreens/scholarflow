@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import { SignOutButton } from '@/components/auth/SignOutButton';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -129,6 +130,16 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
               </CardHeader>
             </Card>
           )}
+
+          <Card className="mt-6">
+            <CardHeader>
+              <CardTitle>Session</CardTitle>
+              <CardDescription>End the current ScholarFlow AI session.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <SignOutButton />
+            </CardContent>
+          </Card>
         </div>
       </main>
     </div>

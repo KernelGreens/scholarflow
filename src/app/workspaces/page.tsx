@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { CreateWorkspaceForm } from '@/components/research/CreateWorkspaceForm';
+import { SignOutButton } from '@/components/auth/SignOutButton';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const instant = false;
@@ -48,6 +49,16 @@ export default async function WorkspacesPage() {
               ))}
             </ul>
           )}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Session</CardTitle>
+          <CardDescription>End the current ScholarFlow AI session.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <SignOutButton />
         </CardContent>
       </Card>
     </main>

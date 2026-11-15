@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { SignOutButton } from '@/components/auth/SignOutButton';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { NewProjectForm } from '@/components/research/NewProjectForm';
 
 export const instant = false;
@@ -41,6 +42,16 @@ export default async function WorkspaceProjectsNewPage({ params }: WorkspaceProj
         <h1 className="mt-2 text-2xl font-semibold tracking-tight">New research project</h1>
       </div>
       <NewProjectForm workspaceSlug={tenant.slug} />
+
+      <Card className="mt-6">
+        <CardHeader>
+          <CardTitle>Session</CardTitle>
+          <CardDescription>End the current ScholarFlow AI session.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <SignOutButton />
+        </CardContent>
+      </Card>
     </main>
   );
 }

@@ -31,15 +31,21 @@
 - Login and register pages now include a "Back to the landing page" link pointing to `/`.
 - Post-auth flow now routes to the Workspace Management dashboard (`/workspaces`) instead of the
   project dashboard; workspace list entries are now clickable for switching.
+- Sign-out implemented: reusable `SignOutButton` component
+  (`src/components/auth/SignOutButton.tsx`) added via `signOut({ callbackUrl: '/' })`; wired into all
+  authenticated pages: `/workspaces`, `/w/[workspaceSlug]/projects`,
+  `/w/[workspaceSlug]/projects/[projectId]`, `/w/[workspaceSlug]/projects/new`.
+  (Public pages `/`, `/login`, `/register` intentionally do not show it.)
 
 ## Validation results
 
 - Unit/integration tests (vitest): **13/13 passing** (`node ...\node_modules/vitest/vitest.mjs run`).
 - Prisma: `prisma validate` OK, `prisma generate` OK, baseline migration created and applied via
   `prisma migrate dev`; `prisma migrate status` → **"Database schema is up to date!"**.
-- Production build (Next.js 16.4.6, Turbopack): **GREEN — `NEXT_BUILD10_EXIT=0`**.
-  - Compiled successfully; TypeScript clean; 14/14 static pages generated; route table emitted.
+- Production build (Next.js 16.4.6, Turbopack): **GREEN — latest run `NEXT_BUILD22_EXIT=0`**;
+  14/14 static pages generated; TypeScript clean; route table emitted.
 - Dashboard UI slice (per mockup): production build **GREEN — `NEXT_BUILD11_EXIT=0`**; tests **13/13 passing**.
+- Sign-out slice: production build **GREEN — `NEXT_BUILD22_EXIT=0`**; tests **GREEN — `VITEST_RUN22_EXIT=0`**.
 
 ## Phase 1 acceptance (this session — end-to-end)
 
@@ -58,6 +64,8 @@ Dashboard rendering verified: authenticated `GET /dashboard` → **200** with "R
 - Email verification, password reset, workspace switching UI pending.
 - No seed data yet (Phase 1 acceptance requires demo project from seed).
 - Run Discovery button is UI-only (no backend action yet).
+- Workspace management: users with a single workspace auto-access it; multi-workspace users can switch
+  via clickable workspace entries on `/workspaces`.
 
 ## Acceptance criteria checklist (Phase 1)
 
