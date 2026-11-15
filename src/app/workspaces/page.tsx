@@ -1,5 +1,6 @@
 import { connection } from 'next/server';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { CreateWorkspaceForm } from '@/components/research/CreateWorkspaceForm';
@@ -36,11 +37,13 @@ export default async function WorkspacesPage() {
           ) : (
             <ul className="space-y-2">
               {tenants.map((t) => (
-                <li key={t.id} className="flex items-center justify-between rounded-lg border p-3">
-                  <div>
-                    <p className="font-medium">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.slug}</p>
-                  </div>
+                <li key={t.id} className="rounded-lg border p-3">
+                  <Link href={`/w/${t.slug}/projects`} className="block">
+                    <div>
+                      <p className="font-medium">{t.name}</p>
+                      <p className="text-xs text-muted-foreground">{t.slug}</p>
+                    </div>
+                  </Link>
                 </li>
               ))}
             </ul>

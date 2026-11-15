@@ -37,7 +37,7 @@ export default function RegisterPage() {
       setError('Account created, but automatic sign-in failed. Please sign in.');
       return;
     }
-    router.push('/dashboard');
+    router.push('/workspaces');
     router.refresh();
   }
 
