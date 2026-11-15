@@ -26,6 +26,8 @@
   (sidebar with modules, main area renders the selected module).
 - Dashboard adaptation: `/dashboard` now redirects to the user's first project dashboard
   (`/w/[slug]/projects/[projectId]`), or to `/workspaces` when no project exists.
+- Landing page implemented at `/` per UI Flow Spec Page 02A (public pages / landing interface):
+  hero, features, how it works, pricing, about, CTAs.
 
 ## Validation results
 
