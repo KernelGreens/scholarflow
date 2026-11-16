@@ -73,29 +73,29 @@ export function NewProjectForm({ workspaceSlug }: NewProjectFormProps) {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="title">Research title *</Label>
-            <Input id="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+            <Input id="title" value={title} onChange={(e) => setTitle(e.target.value)} required placeholder="e.g. The impact of AI on doctoral research workflows" />
           </div>
           <div className="space-y-2">
             <Label htmlFor="shortTitle">Short title</Label>
-            <Input id="shortTitle" value={shortTitle} onChange={(e) => setShortTitle(e.target.value)} />
+            <Input id="shortTitle" value={shortTitle} onChange={(e) => setShortTitle(e.target.value)} placeholder="e.g. AI Doctoral Workflows" />
           </div>
           <div className="space-y-2">
             <Label htmlFor="description">Description</Label>
-            <Textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} />
+            <Textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Brief context for this research project…" />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="discipline">Academic discipline</Label>
-              <Input id="discipline" value={discipline} onChange={(e) => setDiscipline(e.target.value)} />
+              <Input id="discipline" value={discipline} onChange={(e) => setDiscipline(e.target.value)} placeholder="e.g. Computer Science" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="institution">Institution</Label>
-              <Input id="institution" value={institution} onChange={(e) => setInstitution(e.target.value)} />
+              <Input id="institution" value={institution} onChange={(e) => setInstitution(e.target.value)} placeholder="e.g. University of Oslo" />
             </div>
           </div>
           <div className="space-y-2">
             <Label htmlFor="aim">Research aim</Label>
-            <Textarea id="aim" value={aim} onChange={(e) => setAim(e.target.value)} />
+            <Textarea id="aim" value={aim} onChange={(e) => setAim(e.target.value)} placeholder="What gap or problem does this research address?" />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
@@ -114,7 +114,7 @@ export function NewProjectForm({ workspaceSlug }: NewProjectFormProps) {
           </div>
           <div className="space-y-2">
             <Label htmlFor="keywords">Keywords (comma separated)</Label>
-            <Input id="keywords" value={keywords} onChange={(e) => setKeywords(e.target.value)} />
+            <Input id="keywords" value={keywords} onChange={(e) => setKeywords(e.target.value)} placeholder="e.g. machine learning, doctoral supervision, research automation" />
           </div>
           <div className="space-y-2">
             <Label htmlFor="privacy">Privacy</Label>

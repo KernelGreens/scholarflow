@@ -40,6 +40,18 @@ enum PrivacyLevel {
   PUBLIC
 }
 
+enum AutomationRunStatus {
+  QUEUED
+  DISPATCHING
+  RUNNING
+  PARTIAL
+  COMPLETED
+  FAILED
+  CANCEL_REQUESTED
+  CANCELLED
+  TIMED_OUT
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -101,6 +113,7 @@ model Tenant {
   memberships   TenantMembership[]
   invitations   Invitation[]
   projects      ResearchProject[]
+  automationRuns AutomationRun[]
 }
 
 model TenantMembership {
@@ -175,8 +188,9 @@ model ResearchProject {
   tenant      Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   createdBy   User               @relation(fields: [createdById], references: [id], onDelete: Cascade)
   memberships ProjectMembership[]
-
   phases ResearchPhase[]
+
+  automationRuns AutomationRun[]
 }
 
 model ResearchPhase {
@@ -192,4 +206,42 @@ model ResearchPhase {
   project ResearchProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
 
   @@index([projectId, sequence])
+}
+
+// ---------------------------------------------------------------------------
+// Automation (Phase 2 — Research Discovery backend)
+// ---------------------------------------------------------------------------
+
+model AutomationRun {
+  id               String               @id @default(cuid())
+  tenantId         String
+  projectId        String
+  workflowKey      String               @default("RESEARCH_DISCOVERY")
+  workflowVersion  Int                  @default(1)
+  status           AutomationRunStatus @default(QUEUED)
+  correlationId    String               @unique
+  idempotencyKey  String               @unique
+  requestedBy      String
+  startedAt        DateTime?
+  completedAt      DateTime?
+  usage            Json?
+
+  tenant      Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project     ResearchProject    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  events      AutomationRunEvent[]
+
+  @@index([tenantId, status])
+}
+
+model AutomationRunEvent {
+  id        String   @id @default(cuid())
+  runId     String
+  type      String
+  status    String?
+  payload   Json?
+  timestamp DateTime @default(now())
+
+  run AutomationRun @relation(fields: [runId], references: [id], onDelete: Cascade)
+
+  @@index([runId, timestamp])
 }
