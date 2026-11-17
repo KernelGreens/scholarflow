@@ -61,6 +61,7 @@ export const ModelName = {
   ProjectMembership: 'ProjectMembership',
   ResearchProject: 'ResearchProject',
   ResearchPhase: 'ResearchPhase',
+  PasswordResetToken: 'PasswordResetToken',
   AutomationRun: 'AutomationRun',
   AutomationRunEvent: 'AutomationRunEvent'
 } as const
@@ -219,6 +220,18 @@ export const ResearchPhaseScalarFieldEnum = {
 } as const
 
 export type ResearchPhaseScalarFieldEnum = (typeof ResearchPhaseScalarFieldEnum)[keyof typeof ResearchPhaseScalarFieldEnum]
+
+
+export const PasswordResetTokenScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  token: 'token',
+  expiresAt: 'expiresAt',
+  usedAt: 'usedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type PasswordResetTokenScalarFieldEnum = (typeof PasswordResetTokenScalarFieldEnum)[keyof typeof PasswordResetTokenScalarFieldEnum]
 
 
 export const AutomationRunScalarFieldEnum = {

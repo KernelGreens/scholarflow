@@ -10,6 +10,9 @@ security, AI data handling, n8n callbacks, and audit requirements.
 - Auth.js managed sessions (JWT strategy default for this phase; database sessions
   deferred).
 - Email verification where appropriate; password policies via Zod + server-side checks.
+- Password reset: token-based flow implemented
+  (`POST /api/auth/forgot-password` issues a reset token; `POST /api/auth/reset-password`
+  consumes it). Email delivery via SMTP/n8n notification remains pending.
 - Secure, httpOnly, SameSite session cookies; CSRF protection for state-changing
   mutations (Server Actions / route handlers) via double-submit or framework support.
 

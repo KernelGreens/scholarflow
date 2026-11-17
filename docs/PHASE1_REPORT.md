@@ -69,9 +69,11 @@ Dashboard rendering verified: authenticated `GET /dashboard` → **200** with "R
 
 ## Known limitations
 
-- Email verification, password reset, workspace switching UI pending.
+- Email verification pending.
+- Password reset implemented (token-based via `/api/auth/forgot-password` + `/api/auth/reset-password`);
+  email delivery pending.
 - No seed data yet (Phase 1 acceptance requires demo project from seed).
-- Run Discovery button is UI-only (no backend action yet).
+- Run Discovery now dispatches via n8n webhook (Phase 2 backend); durable outbox/queue wiring pending.
 - Workspace management: users with a single workspace auto-access it; multi-workspace users can switch
   via clickable workspace entries on `/workspaces`.
 - RLS enabled in PostgreSQL via tenant-scoped policies (`tenant_isolation_*`, migration

@@ -92,6 +92,11 @@ export type ResearchProject = Prisma.ResearchProjectModel
  */
 export type ResearchPhase = Prisma.ResearchPhaseModel
 /**
+ * Model PasswordResetToken
+ * 
+ */
+export type PasswordResetToken = Prisma.PasswordResetTokenModel
+/**
  * Model AutomationRun
  * 
  */
