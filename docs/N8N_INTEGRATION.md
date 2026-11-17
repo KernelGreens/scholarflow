@@ -111,5 +111,13 @@ Valid transitions only; duplicate/out-of-order callbacks handled idempotently.
 
 ## 10. Current status
 
-Phase 2 will implement the integration-ready n8n workflow JSON and the callback
+Phase 2 implements the integration-ready n8n workflow JSON and the callback
 handler. Until then, only `RESEARCH_DISCOVERY` is planned; others deferred.
+
+- Slice 2.2 status: **implemented** — `AutomationRun` + `AutomationRunEvent`
+  models, authenticated `POST /api/runs` (create + dispatch signed n8n webhook),
+  authenticated `GET /api/runs/:runId` (status/results), and HMAC-validated
+  internal callback endpoints under
+  `POST /api/internal/automation/v1/runs/:runId/events/{ack|progress|complete|fail|heartbeat}`.
+  Run lifecycle: `QUEUED → DISPATCHING → RUNNING → (PARTIAL | COMPLETED | FAILED) | CANCEL_REQUESTED → CANCELLED | TIMED_OUT`.
+  Durable outbox/queue wiring and real n8n workflow deployment remain pending.

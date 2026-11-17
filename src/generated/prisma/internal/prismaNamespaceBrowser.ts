@@ -60,7 +60,9 @@ export const ModelName = {
   Invitation: 'Invitation',
   ProjectMembership: 'ProjectMembership',
   ResearchProject: 'ResearchProject',
-  ResearchPhase: 'ResearchPhase'
+  ResearchPhase: 'ResearchPhase',
+  AutomationRun: 'AutomationRun',
+  AutomationRunEvent: 'AutomationRunEvent'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -219,12 +221,50 @@ export const ResearchPhaseScalarFieldEnum = {
 export type ResearchPhaseScalarFieldEnum = (typeof ResearchPhaseScalarFieldEnum)[keyof typeof ResearchPhaseScalarFieldEnum]
 
 
+export const AutomationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  projectId: 'projectId',
+  workflowKey: 'workflowKey',
+  workflowVersion: 'workflowVersion',
+  status: 'status',
+  correlationId: 'correlationId',
+  idempotencyKey: 'idempotencyKey',
+  requestedBy: 'requestedBy',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  usage: 'usage'
+} as const
+
+export type AutomationRunScalarFieldEnum = (typeof AutomationRunScalarFieldEnum)[keyof typeof AutomationRunScalarFieldEnum]
+
+
+export const AutomationRunEventScalarFieldEnum = {
+  id: 'id',
+  runId: 'runId',
+  type: 'type',
+  status: 'status',
+  payload: 'payload',
+  timestamp: 'timestamp'
+} as const
+
+export type AutomationRunEventScalarFieldEnum = (typeof AutomationRunEventScalarFieldEnum)[keyof typeof AutomationRunEventScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull
+} as const
+
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
 export const QueryMode = {
@@ -241,4 +281,13 @@ export const NullsOrder = {
 } as const
 
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 

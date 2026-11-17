@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { SignOutButton } from '@/components/auth/SignOutButton';
-import { Button } from '@/components/ui/button';
+import { RunDiscoveryButton } from '@/components/research/RunDiscoveryButton';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const instant = false;
@@ -115,9 +115,7 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
                   <p className="text-sm font-medium">Next action: Run Discovery</p>
                   <p className="text-xs text-muted-foreground">Current phase: {project.phase}</p>
                 </div>
-                <Button className="h-9 rounded-md bg-[#2563eb] px-4 text-sm font-medium text-white hover:bg-[#2563eb]/90">
-                  Run Discovery
-                </Button>
+                <RunDiscoveryButton projectId={project.id} />
               </CardContent>
             </Card>
           ) : (

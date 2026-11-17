@@ -67,3 +67,13 @@ export type ResearchProject = Prisma.ResearchProjectModel
  * 
  */
 export type ResearchPhase = Prisma.ResearchPhaseModel
+/**
+ * Model AutomationRun
+ * 
+ */
+export type AutomationRun = Prisma.AutomationRunModel
+/**
+ * Model AutomationRunEvent
+ * 
+ */
+export type AutomationRunEvent = Prisma.AutomationRunEventModel

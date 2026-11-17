@@ -193,6 +193,7 @@ export type TenantWhereInput = {
   memberships?: Prisma.TenantMembershipListRelationFilter
   invitations?: Prisma.InvitationListRelationFilter
   projects?: Prisma.ResearchProjectListRelationFilter
+  automationRuns?: Prisma.AutomationRunListRelationFilter
 }
 
 export type TenantOrderByWithRelationInput = {
@@ -205,6 +206,7 @@ export type TenantOrderByWithRelationInput = {
   memberships?: Prisma.TenantMembershipOrderByRelationAggregateInput
   invitations?: Prisma.InvitationOrderByRelationAggregateInput
   projects?: Prisma.ResearchProjectOrderByRelationAggregateInput
+  automationRuns?: Prisma.AutomationRunOrderByRelationAggregateInput
 }
 
 export type TenantWhereUniqueInput = Prisma.AtLeast<{
@@ -220,6 +222,7 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   memberships?: Prisma.TenantMembershipListRelationFilter
   invitations?: Prisma.InvitationListRelationFilter
   projects?: Prisma.ResearchProjectListRelationFilter
+  automationRuns?: Prisma.AutomationRunListRelationFilter
 }, "id" | "slug">
 
 export type TenantOrderByWithAggregationInput = {
@@ -256,6 +259,7 @@ export type TenantCreateInput = {
   memberships?: Prisma.TenantMembershipCreateNestedManyWithoutTenantInput
   invitations?: Prisma.InvitationCreateNestedManyWithoutTenantInput
   projects?: Prisma.ResearchProjectCreateNestedManyWithoutTenantInput
+  automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateInput = {
@@ -268,6 +272,7 @@ export type TenantUncheckedCreateInput = {
   memberships?: Prisma.TenantMembershipUncheckedCreateNestedManyWithoutTenantInput
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutTenantInput
   projects?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutTenantInput
+  automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUpdateInput = {
@@ -280,6 +285,7 @@ export type TenantUpdateInput = {
   memberships?: Prisma.TenantMembershipUpdateManyWithoutTenantNestedInput
   invitations?: Prisma.InvitationUpdateManyWithoutTenantNestedInput
   projects?: Prisma.ResearchProjectUpdateManyWithoutTenantNestedInput
+  automationRuns?: Prisma.AutomationRunUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateInput = {
@@ -292,6 +298,7 @@ export type TenantUncheckedUpdateInput = {
   memberships?: Prisma.TenantMembershipUncheckedUpdateManyWithoutTenantNestedInput
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutTenantNestedInput
   projects?: Prisma.ResearchProjectUncheckedUpdateManyWithoutTenantNestedInput
+  automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateManyInput = {
@@ -399,6 +406,20 @@ export type TenantUpdateOneRequiredWithoutProjectsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutProjectsInput, Prisma.TenantUpdateWithoutProjectsInput>, Prisma.TenantUncheckedUpdateWithoutProjectsInput>
 }
 
+export type TenantCreateNestedOneWithoutAutomationRunsInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutAutomationRunsInput, Prisma.TenantUncheckedCreateWithoutAutomationRunsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutAutomationRunsInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutAutomationRunsNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutAutomationRunsInput, Prisma.TenantUncheckedCreateWithoutAutomationRunsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutAutomationRunsInput
+  upsert?: Prisma.TenantUpsertWithoutAutomationRunsInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutAutomationRunsInput, Prisma.TenantUpdateWithoutAutomationRunsInput>, Prisma.TenantUncheckedUpdateWithoutAutomationRunsInput>
+}
+
 export type TenantCreateWithoutMembershipsInput = {
   id?: string
   slug: string
@@ -408,6 +429,7 @@ export type TenantCreateWithoutMembershipsInput = {
   updatedAt?: Date | string
   invitations?: Prisma.InvitationCreateNestedManyWithoutTenantInput
   projects?: Prisma.ResearchProjectCreateNestedManyWithoutTenantInput
+  automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutMembershipsInput = {
@@ -419,6 +441,7 @@ export type TenantUncheckedCreateWithoutMembershipsInput = {
   updatedAt?: Date | string
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutTenantInput
   projects?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutTenantInput
+  automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutMembershipsInput = {
@@ -446,6 +469,7 @@ export type TenantUpdateWithoutMembershipsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   invitations?: Prisma.InvitationUpdateManyWithoutTenantNestedInput
   projects?: Prisma.ResearchProjectUpdateManyWithoutTenantNestedInput
+  automationRuns?: Prisma.AutomationRunUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutMembershipsInput = {
@@ -457,6 +481,7 @@ export type TenantUncheckedUpdateWithoutMembershipsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutTenantNestedInput
   projects?: Prisma.ResearchProjectUncheckedUpdateManyWithoutTenantNestedInput
+  automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutInvitationsInput = {
@@ -468,6 +493,7 @@ export type TenantCreateWithoutInvitationsInput = {
   updatedAt?: Date | string
   memberships?: Prisma.TenantMembershipCreateNestedManyWithoutTenantInput
   projects?: Prisma.ResearchProjectCreateNestedManyWithoutTenantInput
+  automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutInvitationsInput = {
@@ -479,6 +505,7 @@ export type TenantUncheckedCreateWithoutInvitationsInput = {
   updatedAt?: Date | string
   memberships?: Prisma.TenantMembershipUncheckedCreateNestedManyWithoutTenantInput
   projects?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutTenantInput
+  automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutInvitationsInput = {
@@ -506,6 +533,7 @@ export type TenantUpdateWithoutInvitationsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.TenantMembershipUpdateManyWithoutTenantNestedInput
   projects?: Prisma.ResearchProjectUpdateManyWithoutTenantNestedInput
+  automationRuns?: Prisma.AutomationRunUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutInvitationsInput = {
@@ -517,6 +545,7 @@ export type TenantUncheckedUpdateWithoutInvitationsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.TenantMembershipUncheckedUpdateManyWithoutTenantNestedInput
   projects?: Prisma.ResearchProjectUncheckedUpdateManyWithoutTenantNestedInput
+  automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutProjectsInput = {
@@ -528,6 +557,7 @@ export type TenantCreateWithoutProjectsInput = {
   updatedAt?: Date | string
   memberships?: Prisma.TenantMembershipCreateNestedManyWithoutTenantInput
   invitations?: Prisma.InvitationCreateNestedManyWithoutTenantInput
+  automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutProjectsInput = {
@@ -539,6 +569,7 @@ export type TenantUncheckedCreateWithoutProjectsInput = {
   updatedAt?: Date | string
   memberships?: Prisma.TenantMembershipUncheckedCreateNestedManyWithoutTenantInput
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutTenantInput
+  automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutProjectsInput = {
@@ -566,6 +597,7 @@ export type TenantUpdateWithoutProjectsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.TenantMembershipUpdateManyWithoutTenantNestedInput
   invitations?: Prisma.InvitationUpdateManyWithoutTenantNestedInput
+  automationRuns?: Prisma.AutomationRunUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutProjectsInput = {
@@ -577,6 +609,71 @@ export type TenantUncheckedUpdateWithoutProjectsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.TenantMembershipUncheckedUpdateManyWithoutTenantNestedInput
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutTenantNestedInput
+  automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutAutomationRunsInput = {
+  id?: string
+  slug: string
+  name: string
+  type?: $Enums.TenantType
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.TenantMembershipCreateNestedManyWithoutTenantInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutTenantInput
+  projects?: Prisma.ResearchProjectCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutAutomationRunsInput = {
+  id?: string
+  slug: string
+  name: string
+  type?: $Enums.TenantType
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.TenantMembershipUncheckedCreateNestedManyWithoutTenantInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutTenantInput
+  projects?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutAutomationRunsInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutAutomationRunsInput, Prisma.TenantUncheckedCreateWithoutAutomationRunsInput>
+}
+
+export type TenantUpsertWithoutAutomationRunsInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutAutomationRunsInput, Prisma.TenantUncheckedUpdateWithoutAutomationRunsInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutAutomationRunsInput, Prisma.TenantUncheckedCreateWithoutAutomationRunsInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutAutomationRunsInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutAutomationRunsInput, Prisma.TenantUncheckedUpdateWithoutAutomationRunsInput>
+}
+
+export type TenantUpdateWithoutAutomationRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumTenantTypeFieldUpdateOperationsInput | $Enums.TenantType
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.TenantMembershipUpdateManyWithoutTenantNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutTenantNestedInput
+  projects?: Prisma.ResearchProjectUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutAutomationRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumTenantTypeFieldUpdateOperationsInput | $Enums.TenantType
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.TenantMembershipUncheckedUpdateManyWithoutTenantNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutTenantNestedInput
+  projects?: Prisma.ResearchProjectUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 
@@ -588,12 +685,14 @@ export type TenantCountOutputType = {
   memberships: number
   invitations: number
   projects: number
+  automationRuns: number
 }
 
 export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   memberships?: boolean | TenantCountOutputTypeCountMembershipsArgs
   invitations?: boolean | TenantCountOutputTypeCountInvitationsArgs
   projects?: boolean | TenantCountOutputTypeCountProjectsArgs
+  automationRuns?: boolean | TenantCountOutputTypeCountAutomationRunsArgs
 }
 
 /**
@@ -627,6 +726,13 @@ export type TenantCountOutputTypeCountProjectsArgs<ExtArgs extends runtime.Types
   where?: Prisma.ResearchProjectWhereInput
 }
 
+/**
+ * TenantCountOutputType without action
+ */
+export type TenantCountOutputTypeCountAutomationRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AutomationRunWhereInput
+}
+
 
 export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -638,6 +744,7 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   memberships?: boolean | Prisma.Tenant$membershipsArgs<ExtArgs>
   invitations?: boolean | Prisma.Tenant$invitationsArgs<ExtArgs>
   projects?: boolean | Prisma.Tenant$projectsArgs<ExtArgs>
+  automationRuns?: boolean | Prisma.Tenant$automationRunsArgs<ExtArgs>
   _count?: boolean | Prisma.TenantCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tenant"]>
 
@@ -673,6 +780,7 @@ export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   memberships?: boolean | Prisma.Tenant$membershipsArgs<ExtArgs>
   invitations?: boolean | Prisma.Tenant$invitationsArgs<ExtArgs>
   projects?: boolean | Prisma.Tenant$projectsArgs<ExtArgs>
+  automationRuns?: boolean | Prisma.Tenant$automationRunsArgs<ExtArgs>
   _count?: boolean | Prisma.TenantCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type TenantIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -684,6 +792,7 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     memberships: Prisma.$TenantMembershipPayload<ExtArgs>[]
     invitations: Prisma.$InvitationPayload<ExtArgs>[]
     projects: Prisma.$ResearchProjectPayload<ExtArgs>[]
+    automationRuns: Prisma.$AutomationRunPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1089,6 +1198,7 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   memberships<T extends Prisma.Tenant$membershipsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$membershipsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TenantMembershipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   invitations<T extends Prisma.Tenant$invitationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$invitationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   projects<T extends Prisma.Tenant$projectsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResearchProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  automationRuns<T extends Prisma.Tenant$automationRunsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$automationRunsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AutomationRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1586,6 +1696,30 @@ export type Tenant$projectsArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   distinct?: Prisma.ResearchProjectScalarFieldEnum | Prisma.ResearchProjectScalarFieldEnum[]
+}
+
+/**
+ * Tenant.automationRuns
+ */
+export type Tenant$automationRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AutomationRun
+   */
+  select?: Prisma.AutomationRunSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AutomationRun
+   */
+  omit?: Prisma.AutomationRunOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AutomationRunInclude<ExtArgs> | null
+  where?: Prisma.AutomationRunWhereInput
+  orderBy?: Prisma.AutomationRunOrderByWithRelationInput | Prisma.AutomationRunOrderByWithRelationInput[]
+  cursor?: Prisma.AutomationRunWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AutomationRunScalarFieldEnum | Prisma.AutomationRunScalarFieldEnum[]
 }
 
 /**

@@ -406,7 +406,9 @@ export const ModelName = {
   Invitation: 'Invitation',
   ProjectMembership: 'ProjectMembership',
   ResearchProject: 'ResearchProject',
-  ResearchPhase: 'ResearchPhase'
+  ResearchPhase: 'ResearchPhase',
+  AutomationRun: 'AutomationRun',
+  AutomationRunEvent: 'AutomationRunEvent'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -422,7 +424,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "account" | "session" | "verificationToken" | "tenant" | "tenantMembership" | "invitation" | "projectMembership" | "researchProject" | "researchPhase"
+    modelProps: "user" | "account" | "session" | "verificationToken" | "tenant" | "tenantMembership" | "invitation" | "projectMembership" | "researchProject" | "researchPhase" | "automationRun" | "automationRunEvent"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1166,6 +1168,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AutomationRun: {
+      payload: Prisma.$AutomationRunPayload<ExtArgs>
+      fields: Prisma.AutomationRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutomationRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutomationRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunPayload>
+        }
+        findFirst: {
+          args: Prisma.AutomationRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutomationRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunPayload>
+        }
+        findMany: {
+          args: Prisma.AutomationRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunPayload>[]
+        }
+        create: {
+          args: Prisma.AutomationRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunPayload>
+        }
+        createMany: {
+          args: Prisma.AutomationRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutomationRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunPayload>[]
+        }
+        delete: {
+          args: Prisma.AutomationRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunPayload>
+        }
+        update: {
+          args: Prisma.AutomationRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutomationRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutomationRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutomationRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutomationRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunPayload>
+        }
+        aggregate: {
+          args: Prisma.AutomationRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutomationRun>
+        }
+        groupBy: {
+          args: Prisma.AutomationRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutomationRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutomationRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutomationRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutomationRunEvent: {
+      payload: Prisma.$AutomationRunEventPayload<ExtArgs>
+      fields: Prisma.AutomationRunEventFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutomationRunEventFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunEventPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutomationRunEventFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunEventPayload>
+        }
+        findFirst: {
+          args: Prisma.AutomationRunEventFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunEventPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutomationRunEventFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunEventPayload>
+        }
+        findMany: {
+          args: Prisma.AutomationRunEventFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunEventPayload>[]
+        }
+        create: {
+          args: Prisma.AutomationRunEventCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunEventPayload>
+        }
+        createMany: {
+          args: Prisma.AutomationRunEventCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutomationRunEventCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunEventPayload>[]
+        }
+        delete: {
+          args: Prisma.AutomationRunEventDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunEventPayload>
+        }
+        update: {
+          args: Prisma.AutomationRunEventUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunEventPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutomationRunEventDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutomationRunEventUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutomationRunEventUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunEventPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutomationRunEventUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutomationRunEventPayload>
+        }
+        aggregate: {
+          args: Prisma.AutomationRunEventAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutomationRunEvent>
+        }
+        groupBy: {
+          args: Prisma.AutomationRunEventGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutomationRunEventGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutomationRunEventCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutomationRunEventCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1345,12 +1495,50 @@ export const ResearchPhaseScalarFieldEnum = {
 export type ResearchPhaseScalarFieldEnum = (typeof ResearchPhaseScalarFieldEnum)[keyof typeof ResearchPhaseScalarFieldEnum]
 
 
+export const AutomationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  projectId: 'projectId',
+  workflowKey: 'workflowKey',
+  workflowVersion: 'workflowVersion',
+  status: 'status',
+  correlationId: 'correlationId',
+  idempotencyKey: 'idempotencyKey',
+  requestedBy: 'requestedBy',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  usage: 'usage'
+} as const
+
+export type AutomationRunScalarFieldEnum = (typeof AutomationRunScalarFieldEnum)[keyof typeof AutomationRunScalarFieldEnum]
+
+
+export const AutomationRunEventScalarFieldEnum = {
+  id: 'id',
+  runId: 'runId',
+  type: 'type',
+  status: 'status',
+  payload: 'payload',
+  timestamp: 'timestamp'
+} as const
+
+export type AutomationRunEventScalarFieldEnum = (typeof AutomationRunEventScalarFieldEnum)[keyof typeof AutomationRunEventScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull
+} as const
+
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
 export const QueryMode = {
@@ -1367,6 +1555,15 @@ export const NullsOrder = {
 } as const
 
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
 
@@ -1470,6 +1667,34 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AutomationRunStatus'
+ */
+export type EnumAutomationRunStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AutomationRunStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'AutomationRunStatus[]'
+ */
+export type ListEnumAutomationRunStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AutomationRunStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Json'
+ */
+export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'QueryMode'
+ */
+export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -1647,6 +1872,8 @@ export type GlobalOmitConfig = {
   projectMembership?: Prisma.ProjectMembershipOmit
   researchProject?: Prisma.ResearchProjectOmit
   researchPhase?: Prisma.ResearchPhaseOmit
+  automationRun?: Prisma.AutomationRunOmit
+  automationRunEvent?: Prisma.AutomationRunEventOmit
 }
 
 /* Types for Logging */

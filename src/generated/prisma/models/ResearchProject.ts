@@ -290,6 +290,7 @@ export type ResearchProjectWhereInput = {
   createdBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   memberships?: Prisma.ProjectMembershipListRelationFilter
   phases?: Prisma.ResearchPhaseListRelationFilter
+  automationRuns?: Prisma.AutomationRunListRelationFilter
 }
 
 export type ResearchProjectOrderByWithRelationInput = {
@@ -316,6 +317,7 @@ export type ResearchProjectOrderByWithRelationInput = {
   createdBy?: Prisma.UserOrderByWithRelationInput
   memberships?: Prisma.ProjectMembershipOrderByRelationAggregateInput
   phases?: Prisma.ResearchPhaseOrderByRelationAggregateInput
+  automationRuns?: Prisma.AutomationRunOrderByRelationAggregateInput
 }
 
 export type ResearchProjectWhereUniqueInput = Prisma.AtLeast<{
@@ -345,6 +347,7 @@ export type ResearchProjectWhereUniqueInput = Prisma.AtLeast<{
   createdBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   memberships?: Prisma.ProjectMembershipListRelationFilter
   phases?: Prisma.ResearchPhaseListRelationFilter
+  automationRuns?: Prisma.AutomationRunListRelationFilter
 }, "id">
 
 export type ResearchProjectOrderByWithAggregationInput = {
@@ -419,6 +422,7 @@ export type ResearchProjectCreateInput = {
   createdBy: Prisma.UserCreateNestedOneWithoutCreatedByInput
   memberships?: Prisma.ProjectMembershipCreateNestedManyWithoutProjectInput
   phases?: Prisma.ResearchPhaseCreateNestedManyWithoutProjectInput
+  automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutProjectInput
 }
 
 export type ResearchProjectUncheckedCreateInput = {
@@ -443,6 +447,7 @@ export type ResearchProjectUncheckedCreateInput = {
   updatedAt?: Date | string
   memberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutProjectInput
   phases?: Prisma.ResearchPhaseUncheckedCreateNestedManyWithoutProjectInput
+  automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ResearchProjectUpdateInput = {
@@ -467,6 +472,7 @@ export type ResearchProjectUpdateInput = {
   createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedByNestedInput
   memberships?: Prisma.ProjectMembershipUpdateManyWithoutProjectNestedInput
   phases?: Prisma.ResearchPhaseUpdateManyWithoutProjectNestedInput
+  automationRuns?: Prisma.AutomationRunUpdateManyWithoutProjectNestedInput
 }
 
 export type ResearchProjectUncheckedUpdateInput = {
@@ -491,6 +497,7 @@ export type ResearchProjectUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutProjectNestedInput
   phases?: Prisma.ResearchPhaseUncheckedUpdateManyWithoutProjectNestedInput
+  automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ResearchProjectCreateManyInput = {
@@ -780,6 +787,20 @@ export type ResearchProjectUpdateOneRequiredWithoutPhasesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ResearchProjectUpdateToOneWithWhereWithoutPhasesInput, Prisma.ResearchProjectUpdateWithoutPhasesInput>, Prisma.ResearchProjectUncheckedUpdateWithoutPhasesInput>
 }
 
+export type ResearchProjectCreateNestedOneWithoutAutomationRunsInput = {
+  create?: Prisma.XOR<Prisma.ResearchProjectCreateWithoutAutomationRunsInput, Prisma.ResearchProjectUncheckedCreateWithoutAutomationRunsInput>
+  connectOrCreate?: Prisma.ResearchProjectCreateOrConnectWithoutAutomationRunsInput
+  connect?: Prisma.ResearchProjectWhereUniqueInput
+}
+
+export type ResearchProjectUpdateOneRequiredWithoutAutomationRunsNestedInput = {
+  create?: Prisma.XOR<Prisma.ResearchProjectCreateWithoutAutomationRunsInput, Prisma.ResearchProjectUncheckedCreateWithoutAutomationRunsInput>
+  connectOrCreate?: Prisma.ResearchProjectCreateOrConnectWithoutAutomationRunsInput
+  upsert?: Prisma.ResearchProjectUpsertWithoutAutomationRunsInput
+  connect?: Prisma.ResearchProjectWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ResearchProjectUpdateToOneWithWhereWithoutAutomationRunsInput, Prisma.ResearchProjectUpdateWithoutAutomationRunsInput>, Prisma.ResearchProjectUncheckedUpdateWithoutAutomationRunsInput>
+}
+
 export type ResearchProjectCreateWithoutCreatedByInput = {
   id?: string
   title: string
@@ -801,6 +822,7 @@ export type ResearchProjectCreateWithoutCreatedByInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutProjectsInput
   memberships?: Prisma.ProjectMembershipCreateNestedManyWithoutProjectInput
   phases?: Prisma.ResearchPhaseCreateNestedManyWithoutProjectInput
+  automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutProjectInput
 }
 
 export type ResearchProjectUncheckedCreateWithoutCreatedByInput = {
@@ -824,6 +846,7 @@ export type ResearchProjectUncheckedCreateWithoutCreatedByInput = {
   updatedAt?: Date | string
   memberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutProjectInput
   phases?: Prisma.ResearchPhaseUncheckedCreateNestedManyWithoutProjectInput
+  automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ResearchProjectCreateOrConnectWithoutCreatedByInput = {
@@ -898,6 +921,7 @@ export type ResearchProjectCreateWithoutTenantInput = {
   createdBy: Prisma.UserCreateNestedOneWithoutCreatedByInput
   memberships?: Prisma.ProjectMembershipCreateNestedManyWithoutProjectInput
   phases?: Prisma.ResearchPhaseCreateNestedManyWithoutProjectInput
+  automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutProjectInput
 }
 
 export type ResearchProjectUncheckedCreateWithoutTenantInput = {
@@ -921,6 +945,7 @@ export type ResearchProjectUncheckedCreateWithoutTenantInput = {
   updatedAt?: Date | string
   memberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutProjectInput
   phases?: Prisma.ResearchPhaseUncheckedCreateNestedManyWithoutProjectInput
+  automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ResearchProjectCreateOrConnectWithoutTenantInput = {
@@ -970,6 +995,7 @@ export type ResearchProjectCreateWithoutMembershipsInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutProjectsInput
   createdBy: Prisma.UserCreateNestedOneWithoutCreatedByInput
   phases?: Prisma.ResearchPhaseCreateNestedManyWithoutProjectInput
+  automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutProjectInput
 }
 
 export type ResearchProjectUncheckedCreateWithoutMembershipsInput = {
@@ -993,6 +1019,7 @@ export type ResearchProjectUncheckedCreateWithoutMembershipsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   phases?: Prisma.ResearchPhaseUncheckedCreateNestedManyWithoutProjectInput
+  automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ResearchProjectCreateOrConnectWithoutMembershipsInput = {
@@ -1032,6 +1059,7 @@ export type ResearchProjectUpdateWithoutMembershipsInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutProjectsNestedInput
   createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedByNestedInput
   phases?: Prisma.ResearchPhaseUpdateManyWithoutProjectNestedInput
+  automationRuns?: Prisma.AutomationRunUpdateManyWithoutProjectNestedInput
 }
 
 export type ResearchProjectUncheckedUpdateWithoutMembershipsInput = {
@@ -1055,6 +1083,7 @@ export type ResearchProjectUncheckedUpdateWithoutMembershipsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   phases?: Prisma.ResearchPhaseUncheckedUpdateManyWithoutProjectNestedInput
+  automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ResearchProjectCreateWithoutPhasesInput = {
@@ -1078,6 +1107,7 @@ export type ResearchProjectCreateWithoutPhasesInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutProjectsInput
   createdBy: Prisma.UserCreateNestedOneWithoutCreatedByInput
   memberships?: Prisma.ProjectMembershipCreateNestedManyWithoutProjectInput
+  automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutProjectInput
 }
 
 export type ResearchProjectUncheckedCreateWithoutPhasesInput = {
@@ -1101,6 +1131,7 @@ export type ResearchProjectUncheckedCreateWithoutPhasesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutProjectInput
+  automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ResearchProjectCreateOrConnectWithoutPhasesInput = {
@@ -1140,6 +1171,7 @@ export type ResearchProjectUpdateWithoutPhasesInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutProjectsNestedInput
   createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedByNestedInput
   memberships?: Prisma.ProjectMembershipUpdateManyWithoutProjectNestedInput
+  automationRuns?: Prisma.AutomationRunUpdateManyWithoutProjectNestedInput
 }
 
 export type ResearchProjectUncheckedUpdateWithoutPhasesInput = {
@@ -1163,6 +1195,119 @@ export type ResearchProjectUncheckedUpdateWithoutPhasesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutProjectNestedInput
+  automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutProjectNestedInput
+}
+
+export type ResearchProjectCreateWithoutAutomationRunsInput = {
+  id?: string
+  title: string
+  shortTitle?: string | null
+  description?: string | null
+  discipline?: string | null
+  status?: $Enums.ProjectStatus
+  phase?: string
+  aim?: string | null
+  institution?: string | null
+  programmeType?: string | null
+  startDate?: Date | string | null
+  targetCompletionDate?: Date | string | null
+  keywords?: Prisma.ResearchProjectCreatekeywordsInput | string[]
+  tags?: Prisma.ResearchProjectCreatetagsInput | string[]
+  privacy?: $Enums.PrivacyLevel
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutProjectsInput
+  createdBy: Prisma.UserCreateNestedOneWithoutCreatedByInput
+  memberships?: Prisma.ProjectMembershipCreateNestedManyWithoutProjectInput
+  phases?: Prisma.ResearchPhaseCreateNestedManyWithoutProjectInput
+}
+
+export type ResearchProjectUncheckedCreateWithoutAutomationRunsInput = {
+  id?: string
+  tenantId: string
+  createdById: string
+  title: string
+  shortTitle?: string | null
+  description?: string | null
+  discipline?: string | null
+  status?: $Enums.ProjectStatus
+  phase?: string
+  aim?: string | null
+  institution?: string | null
+  programmeType?: string | null
+  startDate?: Date | string | null
+  targetCompletionDate?: Date | string | null
+  keywords?: Prisma.ResearchProjectCreatekeywordsInput | string[]
+  tags?: Prisma.ResearchProjectCreatetagsInput | string[]
+  privacy?: $Enums.PrivacyLevel
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutProjectInput
+  phases?: Prisma.ResearchPhaseUncheckedCreateNestedManyWithoutProjectInput
+}
+
+export type ResearchProjectCreateOrConnectWithoutAutomationRunsInput = {
+  where: Prisma.ResearchProjectWhereUniqueInput
+  create: Prisma.XOR<Prisma.ResearchProjectCreateWithoutAutomationRunsInput, Prisma.ResearchProjectUncheckedCreateWithoutAutomationRunsInput>
+}
+
+export type ResearchProjectUpsertWithoutAutomationRunsInput = {
+  update: Prisma.XOR<Prisma.ResearchProjectUpdateWithoutAutomationRunsInput, Prisma.ResearchProjectUncheckedUpdateWithoutAutomationRunsInput>
+  create: Prisma.XOR<Prisma.ResearchProjectCreateWithoutAutomationRunsInput, Prisma.ResearchProjectUncheckedCreateWithoutAutomationRunsInput>
+  where?: Prisma.ResearchProjectWhereInput
+}
+
+export type ResearchProjectUpdateToOneWithWhereWithoutAutomationRunsInput = {
+  where?: Prisma.ResearchProjectWhereInput
+  data: Prisma.XOR<Prisma.ResearchProjectUpdateWithoutAutomationRunsInput, Prisma.ResearchProjectUncheckedUpdateWithoutAutomationRunsInput>
+}
+
+export type ResearchProjectUpdateWithoutAutomationRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  shortTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discipline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
+  phase?: Prisma.StringFieldUpdateOperationsInput | string
+  aim?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  institution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  programmeType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  targetCompletionDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  keywords?: Prisma.ResearchProjectUpdatekeywordsInput | string[]
+  tags?: Prisma.ResearchProjectUpdatetagsInput | string[]
+  privacy?: Prisma.EnumPrivacyLevelFieldUpdateOperationsInput | $Enums.PrivacyLevel
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutProjectsNestedInput
+  createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedByNestedInput
+  memberships?: Prisma.ProjectMembershipUpdateManyWithoutProjectNestedInput
+  phases?: Prisma.ResearchPhaseUpdateManyWithoutProjectNestedInput
+}
+
+export type ResearchProjectUncheckedUpdateWithoutAutomationRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdById?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  shortTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discipline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumProjectStatusFieldUpdateOperationsInput | $Enums.ProjectStatus
+  phase?: Prisma.StringFieldUpdateOperationsInput | string
+  aim?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  institution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  programmeType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  targetCompletionDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  keywords?: Prisma.ResearchProjectUpdatekeywordsInput | string[]
+  tags?: Prisma.ResearchProjectUpdatetagsInput | string[]
+  privacy?: Prisma.EnumPrivacyLevelFieldUpdateOperationsInput | $Enums.PrivacyLevel
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutProjectNestedInput
+  phases?: Prisma.ResearchPhaseUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ResearchProjectCreateManyCreatedByInput = {
@@ -1207,6 +1352,7 @@ export type ResearchProjectUpdateWithoutCreatedByInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutProjectsNestedInput
   memberships?: Prisma.ProjectMembershipUpdateManyWithoutProjectNestedInput
   phases?: Prisma.ResearchPhaseUpdateManyWithoutProjectNestedInput
+  automationRuns?: Prisma.AutomationRunUpdateManyWithoutProjectNestedInput
 }
 
 export type ResearchProjectUncheckedUpdateWithoutCreatedByInput = {
@@ -1230,6 +1376,7 @@ export type ResearchProjectUncheckedUpdateWithoutCreatedByInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutProjectNestedInput
   phases?: Prisma.ResearchPhaseUncheckedUpdateManyWithoutProjectNestedInput
+  automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ResearchProjectUncheckedUpdateManyWithoutCreatedByInput = {
@@ -1295,6 +1442,7 @@ export type ResearchProjectUpdateWithoutTenantInput = {
   createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedByNestedInput
   memberships?: Prisma.ProjectMembershipUpdateManyWithoutProjectNestedInput
   phases?: Prisma.ResearchPhaseUpdateManyWithoutProjectNestedInput
+  automationRuns?: Prisma.AutomationRunUpdateManyWithoutProjectNestedInput
 }
 
 export type ResearchProjectUncheckedUpdateWithoutTenantInput = {
@@ -1318,6 +1466,7 @@ export type ResearchProjectUncheckedUpdateWithoutTenantInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutProjectNestedInput
   phases?: Prisma.ResearchPhaseUncheckedUpdateManyWithoutProjectNestedInput
+  automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ResearchProjectUncheckedUpdateManyWithoutTenantInput = {
@@ -1349,11 +1498,13 @@ export type ResearchProjectUncheckedUpdateManyWithoutTenantInput = {
 export type ResearchProjectCountOutputType = {
   memberships: number
   phases: number
+  automationRuns: number
 }
 
 export type ResearchProjectCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   memberships?: boolean | ResearchProjectCountOutputTypeCountMembershipsArgs
   phases?: boolean | ResearchProjectCountOutputTypeCountPhasesArgs
+  automationRuns?: boolean | ResearchProjectCountOutputTypeCountAutomationRunsArgs
 }
 
 /**
@@ -1378,6 +1529,13 @@ export type ResearchProjectCountOutputTypeCountMembershipsArgs<ExtArgs extends r
  */
 export type ResearchProjectCountOutputTypeCountPhasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ResearchPhaseWhereInput
+}
+
+/**
+ * ResearchProjectCountOutputType without action
+ */
+export type ResearchProjectCountOutputTypeCountAutomationRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AutomationRunWhereInput
 }
 
 
@@ -1405,6 +1563,7 @@ export type ResearchProjectSelect<ExtArgs extends runtime.Types.Extensions.Inter
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   memberships?: boolean | Prisma.ResearchProject$membershipsArgs<ExtArgs>
   phases?: boolean | Prisma.ResearchProject$phasesArgs<ExtArgs>
+  automationRuns?: boolean | Prisma.ResearchProject$automationRunsArgs<ExtArgs>
   _count?: boolean | Prisma.ResearchProjectCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["researchProject"]>
 
@@ -1484,6 +1643,7 @@ export type ResearchProjectInclude<ExtArgs extends runtime.Types.Extensions.Inte
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   memberships?: boolean | Prisma.ResearchProject$membershipsArgs<ExtArgs>
   phases?: boolean | Prisma.ResearchProject$phasesArgs<ExtArgs>
+  automationRuns?: boolean | Prisma.ResearchProject$automationRunsArgs<ExtArgs>
   _count?: boolean | Prisma.ResearchProjectCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ResearchProjectIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1502,6 +1662,7 @@ export type $ResearchProjectPayload<ExtArgs extends runtime.Types.Extensions.Int
     createdBy: Prisma.$UserPayload<ExtArgs>
     memberships: Prisma.$ProjectMembershipPayload<ExtArgs>[]
     phases: Prisma.$ResearchPhasePayload<ExtArgs>[]
+    automationRuns: Prisma.$AutomationRunPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1921,6 +2082,7 @@ export interface Prisma__ResearchProjectClient<T, Null = never, ExtArgs extends 
   createdBy<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   memberships<T extends Prisma.ResearchProject$membershipsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ResearchProject$membershipsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProjectMembershipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   phases<T extends Prisma.ResearchProject$phasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ResearchProject$phasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResearchPhasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  automationRuns<T extends Prisma.ResearchProject$automationRunsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ResearchProject$automationRunsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AutomationRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2415,6 +2577,30 @@ export type ResearchProject$phasesArgs<ExtArgs extends runtime.Types.Extensions.
   take?: number
   skip?: number
   distinct?: Prisma.ResearchPhaseScalarFieldEnum | Prisma.ResearchPhaseScalarFieldEnum[]
+}
+
+/**
+ * ResearchProject.automationRuns
+ */
+export type ResearchProject$automationRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AutomationRun
+   */
+  select?: Prisma.AutomationRunSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AutomationRun
+   */
+  omit?: Prisma.AutomationRunOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AutomationRunInclude<ExtArgs> | null
+  where?: Prisma.AutomationRunWhereInput
+  orderBy?: Prisma.AutomationRunOrderByWithRelationInput | Prisma.AutomationRunOrderByWithRelationInput[]
+  cursor?: Prisma.AutomationRunWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AutomationRunScalarFieldEnum | Prisma.AutomationRunScalarFieldEnum[]
 }
 
 /**

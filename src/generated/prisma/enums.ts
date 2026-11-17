@@ -48,3 +48,18 @@ export const PrivacyLevel = {
 } as const
 
 export type PrivacyLevel = (typeof PrivacyLevel)[keyof typeof PrivacyLevel]
+
+
+export const AutomationRunStatus = {
+  QUEUED: 'QUEUED',
+  DISPATCHING: 'DISPATCHING',
+  RUNNING: 'RUNNING',
+  PARTIAL: 'PARTIAL',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED',
+  CANCEL_REQUESTED: 'CANCEL_REQUESTED',
+  CANCELLED: 'CANCELLED',
+  TIMED_OUT: 'TIMED_OUT'
+} as const
+
+export type AutomationRunStatus = (typeof AutomationRunStatus)[keyof typeof AutomationRunStatus]
