@@ -50,6 +50,7 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
   const latestRun = await prisma.automationRun.findFirst({
     where: { projectId, tenantId: project.tenantId },
     orderBy: { createdAt: 'desc' },
+    include: { events: true },
   });
 
   const activeModule = RESEARCH_MODULES.some((m) => m.name === module) ? module ?? 'Discovery' : 'Discovery';
@@ -136,6 +137,17 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
                       <>
                         {' · '}completed {new Date(latestRun.completedAt).toISOString()}
                       </>
+                    ) : null}
+                    {latestRun.events && latestRun.events.length > 0 ? (
+                      <ul className="mt-3 space-y-1">
+                        {latestRun.events.map((event) => (
+                          <li key={event.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+                            <span className="font-medium text-foreground">{event.type}</span>
+                            <span>{event.status ?? '—'}</span>
+                            <span className="text-muted-foreground">{new Date(event.timestamp).toISOString()}</span>
+                          </li>
+                        ))}
+                      </ul>
                     ) : null}
                   </div>
                 ) : null}
