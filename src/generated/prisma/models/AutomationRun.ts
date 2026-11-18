@@ -284,6 +284,7 @@ export type AutomationRunWhereInput = {
   project?: Prisma.XOR<Prisma.ResearchProjectScalarRelationFilter, Prisma.ResearchProjectWhereInput>
   events?: Prisma.AutomationRunEventListRelationFilter
   publications?: Prisma.PublicationListRelationFilter
+  domainSummaries?: Prisma.DomainSummaryListRelationFilter
 }
 
 export type AutomationRunOrderByWithRelationInput = {
@@ -305,6 +306,7 @@ export type AutomationRunOrderByWithRelationInput = {
   project?: Prisma.ResearchProjectOrderByWithRelationInput
   events?: Prisma.AutomationRunEventOrderByRelationAggregateInput
   publications?: Prisma.PublicationOrderByRelationAggregateInput
+  domainSummaries?: Prisma.DomainSummaryOrderByRelationAggregateInput
 }
 
 export type AutomationRunWhereUniqueInput = Prisma.AtLeast<{
@@ -329,6 +331,7 @@ export type AutomationRunWhereUniqueInput = Prisma.AtLeast<{
   project?: Prisma.XOR<Prisma.ResearchProjectScalarRelationFilter, Prisma.ResearchProjectWhereInput>
   events?: Prisma.AutomationRunEventListRelationFilter
   publications?: Prisma.PublicationListRelationFilter
+  domainSummaries?: Prisma.DomainSummaryListRelationFilter
 }, "id" | "correlationId" | "idempotencyKey">
 
 export type AutomationRunOrderByWithAggregationInput = {
@@ -390,6 +393,7 @@ export type AutomationRunCreateInput = {
   project: Prisma.ResearchProjectCreateNestedOneWithoutAutomationRunsInput
   events?: Prisma.AutomationRunEventCreateNestedManyWithoutRunInput
   publications?: Prisma.PublicationCreateNestedManyWithoutRunInput
+  domainSummaries?: Prisma.DomainSummaryCreateNestedManyWithoutRunInput
 }
 
 export type AutomationRunUncheckedCreateInput = {
@@ -409,6 +413,7 @@ export type AutomationRunUncheckedCreateInput = {
   results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   events?: Prisma.AutomationRunEventUncheckedCreateNestedManyWithoutRunInput
   publications?: Prisma.PublicationUncheckedCreateNestedManyWithoutRunInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedCreateNestedManyWithoutRunInput
 }
 
 export type AutomationRunUpdateInput = {
@@ -428,6 +433,7 @@ export type AutomationRunUpdateInput = {
   project?: Prisma.ResearchProjectUpdateOneRequiredWithoutAutomationRunsNestedInput
   events?: Prisma.AutomationRunEventUpdateManyWithoutRunNestedInput
   publications?: Prisma.PublicationUpdateManyWithoutRunNestedInput
+  domainSummaries?: Prisma.DomainSummaryUpdateManyWithoutRunNestedInput
 }
 
 export type AutomationRunUncheckedUpdateInput = {
@@ -447,6 +453,7 @@ export type AutomationRunUncheckedUpdateInput = {
   results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   events?: Prisma.AutomationRunEventUncheckedUpdateManyWithoutRunNestedInput
   publications?: Prisma.PublicationUncheckedUpdateManyWithoutRunNestedInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedUpdateManyWithoutRunNestedInput
 }
 
 export type AutomationRunCreateManyInput = {
@@ -691,6 +698,22 @@ export type AutomationRunUpdateOneWithoutPublicationsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.AutomationRunUpdateToOneWithWhereWithoutPublicationsInput, Prisma.AutomationRunUpdateWithoutPublicationsInput>, Prisma.AutomationRunUncheckedUpdateWithoutPublicationsInput>
 }
 
+export type AutomationRunCreateNestedOneWithoutDomainSummariesInput = {
+  create?: Prisma.XOR<Prisma.AutomationRunCreateWithoutDomainSummariesInput, Prisma.AutomationRunUncheckedCreateWithoutDomainSummariesInput>
+  connectOrCreate?: Prisma.AutomationRunCreateOrConnectWithoutDomainSummariesInput
+  connect?: Prisma.AutomationRunWhereUniqueInput
+}
+
+export type AutomationRunUpdateOneWithoutDomainSummariesNestedInput = {
+  create?: Prisma.XOR<Prisma.AutomationRunCreateWithoutDomainSummariesInput, Prisma.AutomationRunUncheckedCreateWithoutDomainSummariesInput>
+  connectOrCreate?: Prisma.AutomationRunCreateOrConnectWithoutDomainSummariesInput
+  upsert?: Prisma.AutomationRunUpsertWithoutDomainSummariesInput
+  disconnect?: Prisma.AutomationRunWhereInput | boolean
+  delete?: Prisma.AutomationRunWhereInput | boolean
+  connect?: Prisma.AutomationRunWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AutomationRunUpdateToOneWithWhereWithoutDomainSummariesInput, Prisma.AutomationRunUpdateWithoutDomainSummariesInput>, Prisma.AutomationRunUncheckedUpdateWithoutDomainSummariesInput>
+}
+
 export type AutomationRunCreateWithoutTenantInput = {
   id?: string
   workflowKey?: string
@@ -707,6 +730,7 @@ export type AutomationRunCreateWithoutTenantInput = {
   project: Prisma.ResearchProjectCreateNestedOneWithoutAutomationRunsInput
   events?: Prisma.AutomationRunEventCreateNestedManyWithoutRunInput
   publications?: Prisma.PublicationCreateNestedManyWithoutRunInput
+  domainSummaries?: Prisma.DomainSummaryCreateNestedManyWithoutRunInput
 }
 
 export type AutomationRunUncheckedCreateWithoutTenantInput = {
@@ -725,6 +749,7 @@ export type AutomationRunUncheckedCreateWithoutTenantInput = {
   results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   events?: Prisma.AutomationRunEventUncheckedCreateNestedManyWithoutRunInput
   publications?: Prisma.PublicationUncheckedCreateNestedManyWithoutRunInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedCreateNestedManyWithoutRunInput
 }
 
 export type AutomationRunCreateOrConnectWithoutTenantInput = {
@@ -789,6 +814,7 @@ export type AutomationRunCreateWithoutProjectInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutAutomationRunsInput
   events?: Prisma.AutomationRunEventCreateNestedManyWithoutRunInput
   publications?: Prisma.PublicationCreateNestedManyWithoutRunInput
+  domainSummaries?: Prisma.DomainSummaryCreateNestedManyWithoutRunInput
 }
 
 export type AutomationRunUncheckedCreateWithoutProjectInput = {
@@ -807,6 +833,7 @@ export type AutomationRunUncheckedCreateWithoutProjectInput = {
   results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   events?: Prisma.AutomationRunEventUncheckedCreateNestedManyWithoutRunInput
   publications?: Prisma.PublicationUncheckedCreateNestedManyWithoutRunInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedCreateNestedManyWithoutRunInput
 }
 
 export type AutomationRunCreateOrConnectWithoutProjectInput = {
@@ -851,6 +878,7 @@ export type AutomationRunCreateWithoutEventsInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutAutomationRunsInput
   project: Prisma.ResearchProjectCreateNestedOneWithoutAutomationRunsInput
   publications?: Prisma.PublicationCreateNestedManyWithoutRunInput
+  domainSummaries?: Prisma.DomainSummaryCreateNestedManyWithoutRunInput
 }
 
 export type AutomationRunUncheckedCreateWithoutEventsInput = {
@@ -869,6 +897,7 @@ export type AutomationRunUncheckedCreateWithoutEventsInput = {
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   publications?: Prisma.PublicationUncheckedCreateNestedManyWithoutRunInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedCreateNestedManyWithoutRunInput
 }
 
 export type AutomationRunCreateOrConnectWithoutEventsInput = {
@@ -903,6 +932,7 @@ export type AutomationRunUpdateWithoutEventsInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutAutomationRunsNestedInput
   project?: Prisma.ResearchProjectUpdateOneRequiredWithoutAutomationRunsNestedInput
   publications?: Prisma.PublicationUpdateManyWithoutRunNestedInput
+  domainSummaries?: Prisma.DomainSummaryUpdateManyWithoutRunNestedInput
 }
 
 export type AutomationRunUncheckedUpdateWithoutEventsInput = {
@@ -921,6 +951,7 @@ export type AutomationRunUncheckedUpdateWithoutEventsInput = {
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   publications?: Prisma.PublicationUncheckedUpdateManyWithoutRunNestedInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedUpdateManyWithoutRunNestedInput
 }
 
 export type AutomationRunCreateWithoutPublicationsInput = {
@@ -939,6 +970,7 @@ export type AutomationRunCreateWithoutPublicationsInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutAutomationRunsInput
   project: Prisma.ResearchProjectCreateNestedOneWithoutAutomationRunsInput
   events?: Prisma.AutomationRunEventCreateNestedManyWithoutRunInput
+  domainSummaries?: Prisma.DomainSummaryCreateNestedManyWithoutRunInput
 }
 
 export type AutomationRunUncheckedCreateWithoutPublicationsInput = {
@@ -957,6 +989,7 @@ export type AutomationRunUncheckedCreateWithoutPublicationsInput = {
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   events?: Prisma.AutomationRunEventUncheckedCreateNestedManyWithoutRunInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedCreateNestedManyWithoutRunInput
 }
 
 export type AutomationRunCreateOrConnectWithoutPublicationsInput = {
@@ -991,6 +1024,7 @@ export type AutomationRunUpdateWithoutPublicationsInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutAutomationRunsNestedInput
   project?: Prisma.ResearchProjectUpdateOneRequiredWithoutAutomationRunsNestedInput
   events?: Prisma.AutomationRunEventUpdateManyWithoutRunNestedInput
+  domainSummaries?: Prisma.DomainSummaryUpdateManyWithoutRunNestedInput
 }
 
 export type AutomationRunUncheckedUpdateWithoutPublicationsInput = {
@@ -1009,6 +1043,99 @@ export type AutomationRunUncheckedUpdateWithoutPublicationsInput = {
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   events?: Prisma.AutomationRunEventUncheckedUpdateManyWithoutRunNestedInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedUpdateManyWithoutRunNestedInput
+}
+
+export type AutomationRunCreateWithoutDomainSummariesInput = {
+  id?: string
+  workflowKey?: string
+  workflowVersion?: number
+  status?: $Enums.AutomationRunStatus
+  correlationId: string
+  idempotencyKey: string
+  requestedBy: string
+  createdAt?: Date | string
+  startedAt?: Date | string | null
+  completedAt?: Date | string | null
+  usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  tenant: Prisma.TenantCreateNestedOneWithoutAutomationRunsInput
+  project: Prisma.ResearchProjectCreateNestedOneWithoutAutomationRunsInput
+  events?: Prisma.AutomationRunEventCreateNestedManyWithoutRunInput
+  publications?: Prisma.PublicationCreateNestedManyWithoutRunInput
+}
+
+export type AutomationRunUncheckedCreateWithoutDomainSummariesInput = {
+  id?: string
+  tenantId: string
+  projectId: string
+  workflowKey?: string
+  workflowVersion?: number
+  status?: $Enums.AutomationRunStatus
+  correlationId: string
+  idempotencyKey: string
+  requestedBy: string
+  createdAt?: Date | string
+  startedAt?: Date | string | null
+  completedAt?: Date | string | null
+  usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  events?: Prisma.AutomationRunEventUncheckedCreateNestedManyWithoutRunInput
+  publications?: Prisma.PublicationUncheckedCreateNestedManyWithoutRunInput
+}
+
+export type AutomationRunCreateOrConnectWithoutDomainSummariesInput = {
+  where: Prisma.AutomationRunWhereUniqueInput
+  create: Prisma.XOR<Prisma.AutomationRunCreateWithoutDomainSummariesInput, Prisma.AutomationRunUncheckedCreateWithoutDomainSummariesInput>
+}
+
+export type AutomationRunUpsertWithoutDomainSummariesInput = {
+  update: Prisma.XOR<Prisma.AutomationRunUpdateWithoutDomainSummariesInput, Prisma.AutomationRunUncheckedUpdateWithoutDomainSummariesInput>
+  create: Prisma.XOR<Prisma.AutomationRunCreateWithoutDomainSummariesInput, Prisma.AutomationRunUncheckedCreateWithoutDomainSummariesInput>
+  where?: Prisma.AutomationRunWhereInput
+}
+
+export type AutomationRunUpdateToOneWithWhereWithoutDomainSummariesInput = {
+  where?: Prisma.AutomationRunWhereInput
+  data: Prisma.XOR<Prisma.AutomationRunUpdateWithoutDomainSummariesInput, Prisma.AutomationRunUncheckedUpdateWithoutDomainSummariesInput>
+}
+
+export type AutomationRunUpdateWithoutDomainSummariesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowKey?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowVersion?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumAutomationRunStatusFieldUpdateOperationsInput | $Enums.AutomationRunStatus
+  correlationId?: Prisma.StringFieldUpdateOperationsInput | string
+  idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
+  requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutAutomationRunsNestedInput
+  project?: Prisma.ResearchProjectUpdateOneRequiredWithoutAutomationRunsNestedInput
+  events?: Prisma.AutomationRunEventUpdateManyWithoutRunNestedInput
+  publications?: Prisma.PublicationUpdateManyWithoutRunNestedInput
+}
+
+export type AutomationRunUncheckedUpdateWithoutDomainSummariesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  projectId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowKey?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowVersion?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumAutomationRunStatusFieldUpdateOperationsInput | $Enums.AutomationRunStatus
+  correlationId?: Prisma.StringFieldUpdateOperationsInput | string
+  idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
+  requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  events?: Prisma.AutomationRunEventUncheckedUpdateManyWithoutRunNestedInput
+  publications?: Prisma.PublicationUncheckedUpdateManyWithoutRunNestedInput
 }
 
 export type AutomationRunCreateManyTenantInput = {
@@ -1043,6 +1170,7 @@ export type AutomationRunUpdateWithoutTenantInput = {
   project?: Prisma.ResearchProjectUpdateOneRequiredWithoutAutomationRunsNestedInput
   events?: Prisma.AutomationRunEventUpdateManyWithoutRunNestedInput
   publications?: Prisma.PublicationUpdateManyWithoutRunNestedInput
+  domainSummaries?: Prisma.DomainSummaryUpdateManyWithoutRunNestedInput
 }
 
 export type AutomationRunUncheckedUpdateWithoutTenantInput = {
@@ -1061,6 +1189,7 @@ export type AutomationRunUncheckedUpdateWithoutTenantInput = {
   results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   events?: Prisma.AutomationRunEventUncheckedUpdateManyWithoutRunNestedInput
   publications?: Prisma.PublicationUncheckedUpdateManyWithoutRunNestedInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedUpdateManyWithoutRunNestedInput
 }
 
 export type AutomationRunUncheckedUpdateManyWithoutTenantInput = {
@@ -1111,6 +1240,7 @@ export type AutomationRunUpdateWithoutProjectInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutAutomationRunsNestedInput
   events?: Prisma.AutomationRunEventUpdateManyWithoutRunNestedInput
   publications?: Prisma.PublicationUpdateManyWithoutRunNestedInput
+  domainSummaries?: Prisma.DomainSummaryUpdateManyWithoutRunNestedInput
 }
 
 export type AutomationRunUncheckedUpdateWithoutProjectInput = {
@@ -1129,6 +1259,7 @@ export type AutomationRunUncheckedUpdateWithoutProjectInput = {
   results?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   events?: Prisma.AutomationRunEventUncheckedUpdateManyWithoutRunNestedInput
   publications?: Prisma.PublicationUncheckedUpdateManyWithoutRunNestedInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedUpdateManyWithoutRunNestedInput
 }
 
 export type AutomationRunUncheckedUpdateManyWithoutProjectInput = {
@@ -1155,11 +1286,13 @@ export type AutomationRunUncheckedUpdateManyWithoutProjectInput = {
 export type AutomationRunCountOutputType = {
   events: number
   publications: number
+  domainSummaries: number
 }
 
 export type AutomationRunCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   events?: boolean | AutomationRunCountOutputTypeCountEventsArgs
   publications?: boolean | AutomationRunCountOutputTypeCountPublicationsArgs
+  domainSummaries?: boolean | AutomationRunCountOutputTypeCountDomainSummariesArgs
 }
 
 /**
@@ -1186,6 +1319,13 @@ export type AutomationRunCountOutputTypeCountPublicationsArgs<ExtArgs extends ru
   where?: Prisma.PublicationWhereInput
 }
 
+/**
+ * AutomationRunCountOutputType without action
+ */
+export type AutomationRunCountOutputTypeCountDomainSummariesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DomainSummaryWhereInput
+}
+
 
 export type AutomationRunSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1206,6 +1346,7 @@ export type AutomationRunSelect<ExtArgs extends runtime.Types.Extensions.Interna
   project?: boolean | Prisma.ResearchProjectDefaultArgs<ExtArgs>
   events?: boolean | Prisma.AutomationRun$eventsArgs<ExtArgs>
   publications?: boolean | Prisma.AutomationRun$publicationsArgs<ExtArgs>
+  domainSummaries?: boolean | Prisma.AutomationRun$domainSummariesArgs<ExtArgs>
   _count?: boolean | Prisma.AutomationRunCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["automationRun"]>
 
@@ -1270,6 +1411,7 @@ export type AutomationRunInclude<ExtArgs extends runtime.Types.Extensions.Intern
   project?: boolean | Prisma.ResearchProjectDefaultArgs<ExtArgs>
   events?: boolean | Prisma.AutomationRun$eventsArgs<ExtArgs>
   publications?: boolean | Prisma.AutomationRun$publicationsArgs<ExtArgs>
+  domainSummaries?: boolean | Prisma.AutomationRun$domainSummariesArgs<ExtArgs>
   _count?: boolean | Prisma.AutomationRunCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type AutomationRunIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1288,6 +1430,7 @@ export type $AutomationRunPayload<ExtArgs extends runtime.Types.Extensions.Inter
     project: Prisma.$ResearchProjectPayload<ExtArgs>
     events: Prisma.$AutomationRunEventPayload<ExtArgs>[]
     publications: Prisma.$PublicationPayload<ExtArgs>[]
+    domainSummaries: Prisma.$DomainSummaryPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1702,6 +1845,7 @@ export interface Prisma__AutomationRunClient<T, Null = never, ExtArgs extends ru
   project<T extends Prisma.ResearchProjectDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ResearchProjectDefaultArgs<ExtArgs>>): Prisma.Prisma__ResearchProjectClient<runtime.Types.Result.GetResult<Prisma.$ResearchProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   events<T extends Prisma.AutomationRun$eventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AutomationRun$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AutomationRunEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   publications<T extends Prisma.AutomationRun$publicationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AutomationRun$publicationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  domainSummaries<T extends Prisma.AutomationRun$domainSummariesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AutomationRun$domainSummariesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DomainSummaryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2191,6 +2335,30 @@ export type AutomationRun$publicationsArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.PublicationScalarFieldEnum | Prisma.PublicationScalarFieldEnum[]
+}
+
+/**
+ * AutomationRun.domainSummaries
+ */
+export type AutomationRun$domainSummariesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DomainSummary
+   */
+  select?: Prisma.DomainSummarySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DomainSummary
+   */
+  omit?: Prisma.DomainSummaryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DomainSummaryInclude<ExtArgs> | null
+  where?: Prisma.DomainSummaryWhereInput
+  orderBy?: Prisma.DomainSummaryOrderByWithRelationInput | Prisma.DomainSummaryOrderByWithRelationInput[]
+  cursor?: Prisma.DomainSummaryWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DomainSummaryScalarFieldEnum | Prisma.DomainSummaryScalarFieldEnum[]
 }
 
 /**

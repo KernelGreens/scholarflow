@@ -410,7 +410,8 @@ export const ModelName = {
   PasswordResetToken: 'PasswordResetToken',
   AutomationRun: 'AutomationRun',
   AutomationRunEvent: 'AutomationRunEvent',
-  Publication: 'Publication'
+  Publication: 'Publication',
+  DomainSummary: 'DomainSummary'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -426,7 +427,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "account" | "session" | "verificationToken" | "tenant" | "tenantMembership" | "invitation" | "projectMembership" | "researchProject" | "researchPhase" | "passwordResetToken" | "automationRun" | "automationRunEvent" | "publication"
+    modelProps: "user" | "account" | "session" | "verificationToken" | "tenant" | "tenantMembership" | "invitation" | "projectMembership" | "researchProject" | "researchPhase" | "passwordResetToken" | "automationRun" | "automationRunEvent" | "publication" | "domainSummary"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1466,6 +1467,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    DomainSummary: {
+      payload: Prisma.$DomainSummaryPayload<ExtArgs>
+      fields: Prisma.DomainSummaryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.DomainSummaryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DomainSummaryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.DomainSummaryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DomainSummaryPayload>
+        }
+        findFirst: {
+          args: Prisma.DomainSummaryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DomainSummaryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.DomainSummaryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DomainSummaryPayload>
+        }
+        findMany: {
+          args: Prisma.DomainSummaryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DomainSummaryPayload>[]
+        }
+        create: {
+          args: Prisma.DomainSummaryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DomainSummaryPayload>
+        }
+        createMany: {
+          args: Prisma.DomainSummaryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.DomainSummaryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DomainSummaryPayload>[]
+        }
+        delete: {
+          args: Prisma.DomainSummaryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DomainSummaryPayload>
+        }
+        update: {
+          args: Prisma.DomainSummaryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DomainSummaryPayload>
+        }
+        deleteMany: {
+          args: Prisma.DomainSummaryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.DomainSummaryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.DomainSummaryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DomainSummaryPayload>[]
+        }
+        upsert: {
+          args: Prisma.DomainSummaryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DomainSummaryPayload>
+        }
+        aggregate: {
+          args: Prisma.DomainSummaryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateDomainSummary>
+        }
+        groupBy: {
+          args: Prisma.DomainSummaryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DomainSummaryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.DomainSummaryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DomainSummaryCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1709,6 +1784,22 @@ export const PublicationScalarFieldEnum = {
 } as const
 
 export type PublicationScalarFieldEnum = (typeof PublicationScalarFieldEnum)[keyof typeof PublicationScalarFieldEnum]
+
+
+export const DomainSummaryScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  projectId: 'projectId',
+  runId: 'runId',
+  domain: 'domain',
+  summary: 'summary',
+  sources: 'sources',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DomainSummaryScalarFieldEnum = (typeof DomainSummaryScalarFieldEnum)[keyof typeof DomainSummaryScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2062,6 +2153,7 @@ export type GlobalOmitConfig = {
   automationRun?: Prisma.AutomationRunOmit
   automationRunEvent?: Prisma.AutomationRunEventOmit
   publication?: Prisma.PublicationOmit
+  domainSummary?: Prisma.DomainSummaryOmit
 }
 
 /* Types for Logging */

@@ -87,3 +87,8 @@ export type AutomationRunEvent = Prisma.AutomationRunEventModel
  * 
  */
 export type Publication = Prisma.PublicationModel
+/**
+ * Model DomainSummary
+ * 
+ */
+export type DomainSummary = Prisma.DomainSummaryModel

@@ -116,6 +116,7 @@ model Tenant {
   projects      ResearchProject[]
   automationRuns AutomationRun[]
   publications  Publication[]
+  domainSummaries DomainSummary[]
 }
 
 model TenantMembership {
@@ -194,6 +195,7 @@ model ResearchProject {
 
   automationRuns AutomationRun[]
   publications Publication[]
+  domainSummaries DomainSummary[]
 }
 
 model ResearchPhase {
@@ -246,6 +248,7 @@ model AutomationRun {
   project     ResearchProject    @relation(fields: [projectId], references: [id], onDelete: Cascade)
   events      AutomationRunEvent[]
   publications Publication[]
+  domainSummaries DomainSummary[]
 
   @@index([tenantId, status])
 }
@@ -287,5 +290,26 @@ model Publication {
   run      AutomationRun?    @relation(fields: [runId], references: [id], onDelete: SetNull)
 
   @@unique([projectId, externalId])
+  @@index([tenantId, projectId])
+}
+
+// Domain summaries produced by discovery runs (Phase 2/3 — Research Discovery).
+model DomainSummary {
+  id         String   @id @default(cuid())
+  tenantId   String
+  projectId String
+  runId      String?
+  domain     String
+  summary    String
+  sources    Json?
+  metadata   Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tenant    Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project  ResearchProject   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  run      AutomationRun?    @relation(fields: [runId], references: [id], onDelete: SetNull)
+
+  @@unique([projectId, domain])
   @@index([tenantId, projectId])
 }

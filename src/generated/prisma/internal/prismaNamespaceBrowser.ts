@@ -64,7 +64,8 @@ export const ModelName = {
   PasswordResetToken: 'PasswordResetToken',
   AutomationRun: 'AutomationRun',
   AutomationRunEvent: 'AutomationRunEvent',
-  Publication: 'Publication'
+  Publication: 'Publication',
+  DomainSummary: 'DomainSummary'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -287,6 +288,22 @@ export const PublicationScalarFieldEnum = {
 } as const
 
 export type PublicationScalarFieldEnum = (typeof PublicationScalarFieldEnum)[keyof typeof PublicationScalarFieldEnum]
+
+
+export const DomainSummaryScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  projectId: 'projectId',
+  runId: 'runId',
+  domain: 'domain',
+  summary: 'summary',
+  sources: 'sources',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DomainSummaryScalarFieldEnum = (typeof DomainSummaryScalarFieldEnum)[keyof typeof DomainSummaryScalarFieldEnum]
 
 
 export const SortOrder = {

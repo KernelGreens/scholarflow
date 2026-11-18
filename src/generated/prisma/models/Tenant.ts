@@ -195,6 +195,7 @@ export type TenantWhereInput = {
   projects?: Prisma.ResearchProjectListRelationFilter
   automationRuns?: Prisma.AutomationRunListRelationFilter
   publications?: Prisma.PublicationListRelationFilter
+  domainSummaries?: Prisma.DomainSummaryListRelationFilter
 }
 
 export type TenantOrderByWithRelationInput = {
@@ -209,6 +210,7 @@ export type TenantOrderByWithRelationInput = {
   projects?: Prisma.ResearchProjectOrderByRelationAggregateInput
   automationRuns?: Prisma.AutomationRunOrderByRelationAggregateInput
   publications?: Prisma.PublicationOrderByRelationAggregateInput
+  domainSummaries?: Prisma.DomainSummaryOrderByRelationAggregateInput
 }
 
 export type TenantWhereUniqueInput = Prisma.AtLeast<{
@@ -226,6 +228,7 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   projects?: Prisma.ResearchProjectListRelationFilter
   automationRuns?: Prisma.AutomationRunListRelationFilter
   publications?: Prisma.PublicationListRelationFilter
+  domainSummaries?: Prisma.DomainSummaryListRelationFilter
 }, "id" | "slug">
 
 export type TenantOrderByWithAggregationInput = {
@@ -264,6 +267,7 @@ export type TenantCreateInput = {
   projects?: Prisma.ResearchProjectCreateNestedManyWithoutTenantInput
   automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutTenantInput
   publications?: Prisma.PublicationCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateInput = {
@@ -278,6 +282,7 @@ export type TenantUncheckedCreateInput = {
   projects?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutTenantInput
   automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutTenantInput
   publications?: Prisma.PublicationUncheckedCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUpdateInput = {
@@ -292,6 +297,7 @@ export type TenantUpdateInput = {
   projects?: Prisma.ResearchProjectUpdateManyWithoutTenantNestedInput
   automationRuns?: Prisma.AutomationRunUpdateManyWithoutTenantNestedInput
   publications?: Prisma.PublicationUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateInput = {
@@ -306,6 +312,7 @@ export type TenantUncheckedUpdateInput = {
   projects?: Prisma.ResearchProjectUncheckedUpdateManyWithoutTenantNestedInput
   automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutTenantNestedInput
   publications?: Prisma.PublicationUncheckedUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateManyInput = {
@@ -441,6 +448,20 @@ export type TenantUpdateOneRequiredWithoutPublicationsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutPublicationsInput, Prisma.TenantUpdateWithoutPublicationsInput>, Prisma.TenantUncheckedUpdateWithoutPublicationsInput>
 }
 
+export type TenantCreateNestedOneWithoutDomainSummariesInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutDomainSummariesInput, Prisma.TenantUncheckedCreateWithoutDomainSummariesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutDomainSummariesInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutDomainSummariesNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutDomainSummariesInput, Prisma.TenantUncheckedCreateWithoutDomainSummariesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutDomainSummariesInput
+  upsert?: Prisma.TenantUpsertWithoutDomainSummariesInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutDomainSummariesInput, Prisma.TenantUpdateWithoutDomainSummariesInput>, Prisma.TenantUncheckedUpdateWithoutDomainSummariesInput>
+}
+
 export type TenantCreateWithoutMembershipsInput = {
   id?: string
   slug: string
@@ -452,6 +473,7 @@ export type TenantCreateWithoutMembershipsInput = {
   projects?: Prisma.ResearchProjectCreateNestedManyWithoutTenantInput
   automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutTenantInput
   publications?: Prisma.PublicationCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutMembershipsInput = {
@@ -465,6 +487,7 @@ export type TenantUncheckedCreateWithoutMembershipsInput = {
   projects?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutTenantInput
   automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutTenantInput
   publications?: Prisma.PublicationUncheckedCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutMembershipsInput = {
@@ -494,6 +517,7 @@ export type TenantUpdateWithoutMembershipsInput = {
   projects?: Prisma.ResearchProjectUpdateManyWithoutTenantNestedInput
   automationRuns?: Prisma.AutomationRunUpdateManyWithoutTenantNestedInput
   publications?: Prisma.PublicationUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutMembershipsInput = {
@@ -507,6 +531,7 @@ export type TenantUncheckedUpdateWithoutMembershipsInput = {
   projects?: Prisma.ResearchProjectUncheckedUpdateManyWithoutTenantNestedInput
   automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutTenantNestedInput
   publications?: Prisma.PublicationUncheckedUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutInvitationsInput = {
@@ -520,6 +545,7 @@ export type TenantCreateWithoutInvitationsInput = {
   projects?: Prisma.ResearchProjectCreateNestedManyWithoutTenantInput
   automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutTenantInput
   publications?: Prisma.PublicationCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutInvitationsInput = {
@@ -533,6 +559,7 @@ export type TenantUncheckedCreateWithoutInvitationsInput = {
   projects?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutTenantInput
   automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutTenantInput
   publications?: Prisma.PublicationUncheckedCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutInvitationsInput = {
@@ -562,6 +589,7 @@ export type TenantUpdateWithoutInvitationsInput = {
   projects?: Prisma.ResearchProjectUpdateManyWithoutTenantNestedInput
   automationRuns?: Prisma.AutomationRunUpdateManyWithoutTenantNestedInput
   publications?: Prisma.PublicationUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutInvitationsInput = {
@@ -575,6 +603,7 @@ export type TenantUncheckedUpdateWithoutInvitationsInput = {
   projects?: Prisma.ResearchProjectUncheckedUpdateManyWithoutTenantNestedInput
   automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutTenantNestedInput
   publications?: Prisma.PublicationUncheckedUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutProjectsInput = {
@@ -588,6 +617,7 @@ export type TenantCreateWithoutProjectsInput = {
   invitations?: Prisma.InvitationCreateNestedManyWithoutTenantInput
   automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutTenantInput
   publications?: Prisma.PublicationCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutProjectsInput = {
@@ -601,6 +631,7 @@ export type TenantUncheckedCreateWithoutProjectsInput = {
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutTenantInput
   automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutTenantInput
   publications?: Prisma.PublicationUncheckedCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutProjectsInput = {
@@ -630,6 +661,7 @@ export type TenantUpdateWithoutProjectsInput = {
   invitations?: Prisma.InvitationUpdateManyWithoutTenantNestedInput
   automationRuns?: Prisma.AutomationRunUpdateManyWithoutTenantNestedInput
   publications?: Prisma.PublicationUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutProjectsInput = {
@@ -643,6 +675,7 @@ export type TenantUncheckedUpdateWithoutProjectsInput = {
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutTenantNestedInput
   automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutTenantNestedInput
   publications?: Prisma.PublicationUncheckedUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutAutomationRunsInput = {
@@ -656,6 +689,7 @@ export type TenantCreateWithoutAutomationRunsInput = {
   invitations?: Prisma.InvitationCreateNestedManyWithoutTenantInput
   projects?: Prisma.ResearchProjectCreateNestedManyWithoutTenantInput
   publications?: Prisma.PublicationCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutAutomationRunsInput = {
@@ -669,6 +703,7 @@ export type TenantUncheckedCreateWithoutAutomationRunsInput = {
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutTenantInput
   projects?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutTenantInput
   publications?: Prisma.PublicationUncheckedCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutAutomationRunsInput = {
@@ -698,6 +733,7 @@ export type TenantUpdateWithoutAutomationRunsInput = {
   invitations?: Prisma.InvitationUpdateManyWithoutTenantNestedInput
   projects?: Prisma.ResearchProjectUpdateManyWithoutTenantNestedInput
   publications?: Prisma.PublicationUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutAutomationRunsInput = {
@@ -711,6 +747,7 @@ export type TenantUncheckedUpdateWithoutAutomationRunsInput = {
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutTenantNestedInput
   projects?: Prisma.ResearchProjectUncheckedUpdateManyWithoutTenantNestedInput
   publications?: Prisma.PublicationUncheckedUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutPublicationsInput = {
@@ -724,6 +761,7 @@ export type TenantCreateWithoutPublicationsInput = {
   invitations?: Prisma.InvitationCreateNestedManyWithoutTenantInput
   projects?: Prisma.ResearchProjectCreateNestedManyWithoutTenantInput
   automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutPublicationsInput = {
@@ -737,6 +775,7 @@ export type TenantUncheckedCreateWithoutPublicationsInput = {
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutTenantInput
   projects?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutTenantInput
   automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutTenantInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutPublicationsInput = {
@@ -766,6 +805,7 @@ export type TenantUpdateWithoutPublicationsInput = {
   invitations?: Prisma.InvitationUpdateManyWithoutTenantNestedInput
   projects?: Prisma.ResearchProjectUpdateManyWithoutTenantNestedInput
   automationRuns?: Prisma.AutomationRunUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutPublicationsInput = {
@@ -779,6 +819,79 @@ export type TenantUncheckedUpdateWithoutPublicationsInput = {
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutTenantNestedInput
   projects?: Prisma.ResearchProjectUncheckedUpdateManyWithoutTenantNestedInput
   automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutTenantNestedInput
+  domainSummaries?: Prisma.DomainSummaryUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutDomainSummariesInput = {
+  id?: string
+  slug: string
+  name: string
+  type?: $Enums.TenantType
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.TenantMembershipCreateNestedManyWithoutTenantInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutTenantInput
+  projects?: Prisma.ResearchProjectCreateNestedManyWithoutTenantInput
+  automationRuns?: Prisma.AutomationRunCreateNestedManyWithoutTenantInput
+  publications?: Prisma.PublicationCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutDomainSummariesInput = {
+  id?: string
+  slug: string
+  name: string
+  type?: $Enums.TenantType
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  memberships?: Prisma.TenantMembershipUncheckedCreateNestedManyWithoutTenantInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutTenantInput
+  projects?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutTenantInput
+  automationRuns?: Prisma.AutomationRunUncheckedCreateNestedManyWithoutTenantInput
+  publications?: Prisma.PublicationUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutDomainSummariesInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutDomainSummariesInput, Prisma.TenantUncheckedCreateWithoutDomainSummariesInput>
+}
+
+export type TenantUpsertWithoutDomainSummariesInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutDomainSummariesInput, Prisma.TenantUncheckedUpdateWithoutDomainSummariesInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutDomainSummariesInput, Prisma.TenantUncheckedCreateWithoutDomainSummariesInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutDomainSummariesInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutDomainSummariesInput, Prisma.TenantUncheckedUpdateWithoutDomainSummariesInput>
+}
+
+export type TenantUpdateWithoutDomainSummariesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumTenantTypeFieldUpdateOperationsInput | $Enums.TenantType
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.TenantMembershipUpdateManyWithoutTenantNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutTenantNestedInput
+  projects?: Prisma.ResearchProjectUpdateManyWithoutTenantNestedInput
+  automationRuns?: Prisma.AutomationRunUpdateManyWithoutTenantNestedInput
+  publications?: Prisma.PublicationUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutDomainSummariesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumTenantTypeFieldUpdateOperationsInput | $Enums.TenantType
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  memberships?: Prisma.TenantMembershipUncheckedUpdateManyWithoutTenantNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutTenantNestedInput
+  projects?: Prisma.ResearchProjectUncheckedUpdateManyWithoutTenantNestedInput
+  automationRuns?: Prisma.AutomationRunUncheckedUpdateManyWithoutTenantNestedInput
+  publications?: Prisma.PublicationUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 
@@ -792,6 +905,7 @@ export type TenantCountOutputType = {
   projects: number
   automationRuns: number
   publications: number
+  domainSummaries: number
 }
 
 export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -800,6 +914,7 @@ export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   projects?: boolean | TenantCountOutputTypeCountProjectsArgs
   automationRuns?: boolean | TenantCountOutputTypeCountAutomationRunsArgs
   publications?: boolean | TenantCountOutputTypeCountPublicationsArgs
+  domainSummaries?: boolean | TenantCountOutputTypeCountDomainSummariesArgs
 }
 
 /**
@@ -847,6 +962,13 @@ export type TenantCountOutputTypeCountPublicationsArgs<ExtArgs extends runtime.T
   where?: Prisma.PublicationWhereInput
 }
 
+/**
+ * TenantCountOutputType without action
+ */
+export type TenantCountOutputTypeCountDomainSummariesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DomainSummaryWhereInput
+}
+
 
 export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -860,6 +982,7 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   projects?: boolean | Prisma.Tenant$projectsArgs<ExtArgs>
   automationRuns?: boolean | Prisma.Tenant$automationRunsArgs<ExtArgs>
   publications?: boolean | Prisma.Tenant$publicationsArgs<ExtArgs>
+  domainSummaries?: boolean | Prisma.Tenant$domainSummariesArgs<ExtArgs>
   _count?: boolean | Prisma.TenantCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tenant"]>
 
@@ -897,6 +1020,7 @@ export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   projects?: boolean | Prisma.Tenant$projectsArgs<ExtArgs>
   automationRuns?: boolean | Prisma.Tenant$automationRunsArgs<ExtArgs>
   publications?: boolean | Prisma.Tenant$publicationsArgs<ExtArgs>
+  domainSummaries?: boolean | Prisma.Tenant$domainSummariesArgs<ExtArgs>
   _count?: boolean | Prisma.TenantCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type TenantIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -910,6 +1034,7 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     projects: Prisma.$ResearchProjectPayload<ExtArgs>[]
     automationRuns: Prisma.$AutomationRunPayload<ExtArgs>[]
     publications: Prisma.$PublicationPayload<ExtArgs>[]
+    domainSummaries: Prisma.$DomainSummaryPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1317,6 +1442,7 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   projects<T extends Prisma.Tenant$projectsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResearchProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   automationRuns<T extends Prisma.Tenant$automationRunsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$automationRunsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AutomationRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   publications<T extends Prisma.Tenant$publicationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$publicationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PublicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  domainSummaries<T extends Prisma.Tenant$domainSummariesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$domainSummariesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DomainSummaryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1862,6 +1988,30 @@ export type Tenant$publicationsArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   distinct?: Prisma.PublicationScalarFieldEnum | Prisma.PublicationScalarFieldEnum[]
+}
+
+/**
+ * Tenant.domainSummaries
+ */
+export type Tenant$domainSummariesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DomainSummary
+   */
+  select?: Prisma.DomainSummarySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DomainSummary
+   */
+  omit?: Prisma.DomainSummaryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DomainSummaryInclude<ExtArgs> | null
+  where?: Prisma.DomainSummaryWhereInput
+  orderBy?: Prisma.DomainSummaryOrderByWithRelationInput | Prisma.DomainSummaryOrderByWithRelationInput[]
+  cursor?: Prisma.DomainSummaryWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DomainSummaryScalarFieldEnum | Prisma.DomainSummaryScalarFieldEnum[]
 }
 
 /**
