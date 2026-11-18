@@ -247,7 +247,8 @@ export const AutomationRunScalarFieldEnum = {
   createdAt: 'createdAt',
   startedAt: 'startedAt',
   completedAt: 'completedAt',
-  usage: 'usage'
+  usage: 'usage',
+  results: 'results'
 } as const
 
 export type AutomationRunScalarFieldEnum = (typeof AutomationRunScalarFieldEnum)[keyof typeof AutomationRunScalarFieldEnum]

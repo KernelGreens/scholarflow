@@ -238,6 +238,7 @@ model AutomationRun {
   startedAt        DateTime?
   completedAt      DateTime?
   usage            Json?
+  results          Json?
 
   tenant      Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   project     ResearchProject    @relation(fields: [projectId], references: [id], onDelete: Cascade)

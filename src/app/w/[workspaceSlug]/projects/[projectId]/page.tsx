@@ -151,6 +151,14 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
                     ) : null}
                   </div>
                 ) : null}
+                {latestRun && latestRun.status === 'COMPLETED' && latestRun.results ? (
+                  <div className="border-t pt-3">
+                    <p className="text-xs font-medium text-foreground">Discovery run results</p>
+                    <pre className="mt-2 max-h-96 overflow-auto rounded-md bg-muted p-3 text-xs whitespace-pre-wrap">
+                      {JSON.stringify(latestRun.results, null, 2)}
+                    </pre>
+                  </div>
+                ) : null}
               </CardContent>
             </Card>
           ) : (

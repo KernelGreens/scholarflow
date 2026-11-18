@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
+import { auth } from '@/lib/auth';
 import prisma from '@/lib/prisma';
+import { hasProjectPermission } from '@/lib/auth/permissions';
 import { verifyCallbackSignature, getN8nSigningSecret, CALLBACK_EVENT_TYPES, type CallbackEventType } from '@/lib/automation/n8n';
 import { callbackEventSchema } from '@/lib/validation/automationRunSchema';
 
@@ -58,12 +60,15 @@ export async function POST(req: Request, context: RouteContext) {
     nextStatus = 'PARTIAL';
   }
 
+  const shouldPersistResults = nextStatus === 'COMPLETED' && parsedEvent.data.payload != null;
+
   const updatedRun = nextStatus
     ? await prisma.automationRun.update({
         where: { id: runId },
         data: {
           status: nextStatus as never,
           completedAt: nextStatus === 'COMPLETED' || nextStatus === 'FAILED' ? new Date() : run.completedAt,
+          ...(shouldPersistResults ? { results: parsedEvent.data.payload as never } : {}),
         },
         include: { events: true },
       })
