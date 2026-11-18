@@ -57,7 +57,7 @@ live n8n + AI credentials land and an actual discovery run completes.
 ### Phase 2 slice status (this session)
 
 - [x] Slice 2.2 — AutomationRun + durable dispatch job + n8n webhook contract + callbacks + execution
-  progress UI (status, events timeline, persisted results rendering).
+  progress UI (status, events timeline, persisted results, run detail page).
 - [x] Slice 2.3 — Publication ingestion + literature library + domain summary persistence + candidate
   research topic ingestion (artifacts from completed runs via services + callback wiring).
 - [ ] Slice 2.4 — Phase 2 acceptance & validation (formal close-out; live n8n + AI execution pending).

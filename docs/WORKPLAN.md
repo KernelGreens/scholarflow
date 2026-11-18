@@ -63,6 +63,7 @@ criteria, and acceptance tests. The master implementation plan lives in
 
 ### Slice 2.1 — Research domains + search strategies + workflow catalogue (definitions) — DONE
 ### Slice 2.2 — AutomationRun + durable dispatch job + n8n webhook contract + callbacks — DONE
+  (incl. execution progress UI: latest-run status/events/results + run detail page)
 ### Slice 2.3 — Publication ingestion + literature library + domain summary persistence — DONE
   (publications + literature library + domain summaries delivered; candidate research topics delivered
   as Phase 3 exploratory discovery increment)
