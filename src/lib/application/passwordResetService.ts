@@ -1,6 +1,7 @@
 import { randomBytes } from 'node:crypto';
 import bcrypt from 'bcryptjs';
 import prisma from '@/lib/prisma';
+import { sendPasswordResetEmail } from '@/lib/email/resend';
 
 export class PasswordResetServiceError extends Error {
   status: number;
@@ -22,6 +23,7 @@ export async function requestPasswordReset(input: { email: string }): Promise<{ 
   }
 
   const token = randomBytes(24).toString('hex');
+  const resetUrl = `${process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'}/reset-password?token=${token}`;
   await prisma.passwordResetToken.create({
     data: {
       userId: user.id,
@@ -31,7 +33,16 @@ export async function requestPasswordReset(input: { email: string }): Promise<{ 
     },
   });
 
-  // Email delivery (SMTP/n8n notification) is deferred to the email slice.
+  const emailResult = await sendPasswordResetEmail({
+    to: user.email,
+    resetUrl,
+    expiresAt: new Date(Date.now() + RESET_TOKEN_TTL_MS),
+  });
+
+  if (!emailResult.ok) {
+    console.error('[passwordReset] failed to send reset email', emailResult.error);
+  }
+
   return { ok: true };
 }
 

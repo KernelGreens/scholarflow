@@ -71,7 +71,7 @@ Dashboard rendering verified: authenticated `GET /dashboard` → **200** with "R
 
 - Email verification pending.
 - Password reset implemented (token-based via `/api/auth/forgot-password` + `/api/auth/reset-password`);
-  email delivery pending.
+  email delivery via Resend wired (`RESEND_API_KEY` / `RESEND_FROM_EMAIL`); provider config pending.
 - No seed data yet (Phase 1 acceptance requires demo project from seed).
 - Run Discovery now dispatches via n8n webhook (Phase 2 backend); durable outbox/queue wiring pending.
 - Workspace management: users with a single workspace auto-access it; multi-workspace users can switch
