@@ -116,3 +116,8 @@ export type Publication = Prisma.PublicationModel
  * 
  */
 export type DomainSummary = Prisma.DomainSummaryModel
+/**
+ * Model CandidateResearchTopic
+ * 
+ */
+export type CandidateResearchTopic = Prisma.CandidateResearchTopicModel

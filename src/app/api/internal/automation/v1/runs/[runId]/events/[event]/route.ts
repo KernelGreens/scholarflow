@@ -6,6 +6,7 @@ import { verifyCallbackSignature, getN8nSigningSecret, CALLBACK_EVENT_TYPES, typ
 import { callbackEventSchema } from '@/lib/validation/automationRunSchema';
 import { ingestRunPublications } from '@/lib/application/publicationService';
 import { ingestRunDomainSummaries } from '@/lib/application/domainSummaryService';
+import { ingestRunCandidateResearchTopics } from '@/lib/application/candidateResearchTopicService';
 
 interface RouteContext {
   params: Promise<{ runId: string; event: string }>;
@@ -84,6 +85,8 @@ export async function POST(req: Request, context: RouteContext) {
     console.log('[api/internal/automation] publication ingestion', publicationIngestion);
     const domainSummaryIngestion = await ingestRunDomainSummaries(runId);
     console.log('[api/internal/automation] domain summary ingestion', domainSummaryIngestion);
+    const candidateTopicIngestion = await ingestRunCandidateResearchTopics(runId);
+    console.log('[api/internal/automation] candidate research topic ingestion', candidateTopicIngestion);
   }
 
   await prisma.automationRunEvent.create({

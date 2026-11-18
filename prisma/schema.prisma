@@ -117,6 +117,7 @@ model Tenant {
   automationRuns AutomationRun[]
   publications  Publication[]
   domainSummaries DomainSummary[]
+  candidateResearchTopics CandidateResearchTopic[]
 }
 
 model TenantMembership {
@@ -196,6 +197,7 @@ model ResearchProject {
   automationRuns AutomationRun[]
   publications Publication[]
   domainSummaries DomainSummary[]
+  candidateResearchTopics CandidateResearchTopic[]
 }
 
 model ResearchPhase {
@@ -249,6 +251,7 @@ model AutomationRun {
   events      AutomationRunEvent[]
   publications Publication[]
   domainSummaries DomainSummary[]
+  candidateResearchTopics CandidateResearchTopic[]
 
   @@index([tenantId, status])
 }
@@ -311,5 +314,37 @@ model DomainSummary {
   run      AutomationRun?    @relation(fields: [runId], references: [id], onDelete: SetNull)
 
   @@unique([projectId, domain])
+  @@index([tenantId, projectId])
+}
+
+// Candidate research topics generated from discovery outputs (Phase 3 — Research Discovery).
+model CandidateResearchTopic {
+  id                    String   @id @default(cuid())
+  tenantId              String
+  projectId            String
+  runId                 String?
+  externalId           String
+  proposedTitle        String
+  researchProblem     String?
+  domain               String?
+  motivation           String?
+  possibleResearchQuestions Json?
+  existingApproaches  Json?
+  potentialContribution String?
+  availableEvidence   Json?
+  knownLimitations    String?
+  feasibility         String?
+  requiredData        String?
+  researcherNotes     String?
+  reviewStatus        String   @default("SUGGESTED")
+  metadata             Json?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  tenant    Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project  ResearchProject   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  run      AutomationRun?    @relation(fields: [runId], references: [id], onDelete: SetNull)
+
+  @@unique([projectId, externalId])
   @@index([tenantId, projectId])
 }

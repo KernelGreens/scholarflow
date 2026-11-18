@@ -58,6 +58,11 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
     orderBy: { createdAt: 'desc' },
   });
 
+  const candidateResearchTopics = await prisma.candidateResearchTopic.findMany({
+    where: { projectId, tenantId: project.tenantId },
+    orderBy: { createdAt: 'desc' },
+  });
+
   const activeModule = RESEARCH_MODULES.some((m) => m.name === module) ? module ?? 'Discovery' : 'Discovery';
   const moduleHref = (name: string) => `/w/${tenant.slug}/projects/${projectId}?module=${encodeURIComponent(name)}`;
 
@@ -162,6 +167,21 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
                     <pre className="mt-2 max-h-96 overflow-auto rounded-md bg-muted p-3 text-xs whitespace-pre-wrap">
                       {JSON.stringify(latestRun.results, null, 2)}
                     </pre>
+                  </div>
+                ) : null}
+                {latestRun && latestRun.status === 'COMPLETED' && candidateResearchTopics.length > 0 ? (
+                  <div className="border-t pt-3">
+                    <p className="text-xs font-medium text-foreground">Candidate research topics</p>
+                    <ul className="mt-2 space-y-2">
+                      {candidateResearchTopics.map((topic) => (
+                        <li key={topic.id} className="rounded-md border p-3">
+                          <p className="text-sm font-medium">{topic.proposedTitle}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {[topic.domain, topic.reviewStatus].filter(Boolean).join(' · ')}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ) : null}
               </CardContent>

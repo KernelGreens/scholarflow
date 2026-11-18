@@ -411,7 +411,8 @@ export const ModelName = {
   AutomationRun: 'AutomationRun',
   AutomationRunEvent: 'AutomationRunEvent',
   Publication: 'Publication',
-  DomainSummary: 'DomainSummary'
+  DomainSummary: 'DomainSummary',
+  CandidateResearchTopic: 'CandidateResearchTopic'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -427,7 +428,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "account" | "session" | "verificationToken" | "tenant" | "tenantMembership" | "invitation" | "projectMembership" | "researchProject" | "researchPhase" | "passwordResetToken" | "automationRun" | "automationRunEvent" | "publication" | "domainSummary"
+    modelProps: "user" | "account" | "session" | "verificationToken" | "tenant" | "tenantMembership" | "invitation" | "projectMembership" | "researchProject" | "researchPhase" | "passwordResetToken" | "automationRun" | "automationRunEvent" | "publication" | "domainSummary" | "candidateResearchTopic"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1541,6 +1542,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    CandidateResearchTopic: {
+      payload: Prisma.$CandidateResearchTopicPayload<ExtArgs>
+      fields: Prisma.CandidateResearchTopicFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CandidateResearchTopicFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CandidateResearchTopicPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CandidateResearchTopicFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CandidateResearchTopicPayload>
+        }
+        findFirst: {
+          args: Prisma.CandidateResearchTopicFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CandidateResearchTopicPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CandidateResearchTopicFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CandidateResearchTopicPayload>
+        }
+        findMany: {
+          args: Prisma.CandidateResearchTopicFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CandidateResearchTopicPayload>[]
+        }
+        create: {
+          args: Prisma.CandidateResearchTopicCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CandidateResearchTopicPayload>
+        }
+        createMany: {
+          args: Prisma.CandidateResearchTopicCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CandidateResearchTopicCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CandidateResearchTopicPayload>[]
+        }
+        delete: {
+          args: Prisma.CandidateResearchTopicDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CandidateResearchTopicPayload>
+        }
+        update: {
+          args: Prisma.CandidateResearchTopicUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CandidateResearchTopicPayload>
+        }
+        deleteMany: {
+          args: Prisma.CandidateResearchTopicDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CandidateResearchTopicUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CandidateResearchTopicUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CandidateResearchTopicPayload>[]
+        }
+        upsert: {
+          args: Prisma.CandidateResearchTopicUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CandidateResearchTopicPayload>
+        }
+        aggregate: {
+          args: Prisma.CandidateResearchTopicAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCandidateResearchTopic>
+        }
+        groupBy: {
+          args: Prisma.CandidateResearchTopicGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CandidateResearchTopicGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CandidateResearchTopicCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CandidateResearchTopicCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1800,6 +1875,33 @@ export const DomainSummaryScalarFieldEnum = {
 } as const
 
 export type DomainSummaryScalarFieldEnum = (typeof DomainSummaryScalarFieldEnum)[keyof typeof DomainSummaryScalarFieldEnum]
+
+
+export const CandidateResearchTopicScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  projectId: 'projectId',
+  runId: 'runId',
+  externalId: 'externalId',
+  proposedTitle: 'proposedTitle',
+  researchProblem: 'researchProblem',
+  domain: 'domain',
+  motivation: 'motivation',
+  possibleResearchQuestions: 'possibleResearchQuestions',
+  existingApproaches: 'existingApproaches',
+  potentialContribution: 'potentialContribution',
+  availableEvidence: 'availableEvidence',
+  knownLimitations: 'knownLimitations',
+  feasibility: 'feasibility',
+  requiredData: 'requiredData',
+  researcherNotes: 'researcherNotes',
+  reviewStatus: 'reviewStatus',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CandidateResearchTopicScalarFieldEnum = (typeof CandidateResearchTopicScalarFieldEnum)[keyof typeof CandidateResearchTopicScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2154,6 +2256,7 @@ export type GlobalOmitConfig = {
   automationRunEvent?: Prisma.AutomationRunEventOmit
   publication?: Prisma.PublicationOmit
   domainSummary?: Prisma.DomainSummaryOmit
+  candidateResearchTopic?: Prisma.CandidateResearchTopicOmit
 }
 
 /* Types for Logging */

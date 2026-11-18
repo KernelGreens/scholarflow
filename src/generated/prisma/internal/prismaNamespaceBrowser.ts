@@ -65,7 +65,8 @@ export const ModelName = {
   AutomationRun: 'AutomationRun',
   AutomationRunEvent: 'AutomationRunEvent',
   Publication: 'Publication',
-  DomainSummary: 'DomainSummary'
+  DomainSummary: 'DomainSummary',
+  CandidateResearchTopic: 'CandidateResearchTopic'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -304,6 +305,33 @@ export const DomainSummaryScalarFieldEnum = {
 } as const
 
 export type DomainSummaryScalarFieldEnum = (typeof DomainSummaryScalarFieldEnum)[keyof typeof DomainSummaryScalarFieldEnum]
+
+
+export const CandidateResearchTopicScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  projectId: 'projectId',
+  runId: 'runId',
+  externalId: 'externalId',
+  proposedTitle: 'proposedTitle',
+  researchProblem: 'researchProblem',
+  domain: 'domain',
+  motivation: 'motivation',
+  possibleResearchQuestions: 'possibleResearchQuestions',
+  existingApproaches: 'existingApproaches',
+  potentialContribution: 'potentialContribution',
+  availableEvidence: 'availableEvidence',
+  knownLimitations: 'knownLimitations',
+  feasibility: 'feasibility',
+  requiredData: 'requiredData',
+  researcherNotes: 'researcherNotes',
+  reviewStatus: 'reviewStatus',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CandidateResearchTopicScalarFieldEnum = (typeof CandidateResearchTopicScalarFieldEnum)[keyof typeof CandidateResearchTopicScalarFieldEnum]
 
 
 export const SortOrder = {
