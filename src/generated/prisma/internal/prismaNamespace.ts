@@ -409,7 +409,8 @@ export const ModelName = {
   ResearchPhase: 'ResearchPhase',
   PasswordResetToken: 'PasswordResetToken',
   AutomationRun: 'AutomationRun',
-  AutomationRunEvent: 'AutomationRunEvent'
+  AutomationRunEvent: 'AutomationRunEvent',
+  Publication: 'Publication'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -425,7 +426,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "account" | "session" | "verificationToken" | "tenant" | "tenantMembership" | "invitation" | "projectMembership" | "researchProject" | "researchPhase" | "passwordResetToken" | "automationRun" | "automationRunEvent"
+    modelProps: "user" | "account" | "session" | "verificationToken" | "tenant" | "tenantMembership" | "invitation" | "projectMembership" | "researchProject" | "researchPhase" | "passwordResetToken" | "automationRun" | "automationRunEvent" | "publication"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1391,6 +1392,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Publication: {
+      payload: Prisma.$PublicationPayload<ExtArgs>
+      fields: Prisma.PublicationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PublicationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PublicationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicationPayload>
+        }
+        findFirst: {
+          args: Prisma.PublicationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PublicationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicationPayload>
+        }
+        findMany: {
+          args: Prisma.PublicationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicationPayload>[]
+        }
+        create: {
+          args: Prisma.PublicationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicationPayload>
+        }
+        createMany: {
+          args: Prisma.PublicationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PublicationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicationPayload>[]
+        }
+        delete: {
+          args: Prisma.PublicationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicationPayload>
+        }
+        update: {
+          args: Prisma.PublicationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicationPayload>
+        }
+        deleteMany: {
+          args: Prisma.PublicationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PublicationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PublicationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicationPayload>[]
+        }
+        upsert: {
+          args: Prisma.PublicationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicationPayload>
+        }
+        aggregate: {
+          args: Prisma.PublicationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePublication>
+        }
+        groupBy: {
+          args: Prisma.PublicationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PublicationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PublicationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PublicationCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1612,6 +1687,28 @@ export const AutomationRunEventScalarFieldEnum = {
 } as const
 
 export type AutomationRunEventScalarFieldEnum = (typeof AutomationRunEventScalarFieldEnum)[keyof typeof AutomationRunEventScalarFieldEnum]
+
+
+export const PublicationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  projectId: 'projectId',
+  runId: 'runId',
+  externalId: 'externalId',
+  title: 'title',
+  authors: 'authors',
+  year: 'year',
+  source: 'source',
+  url: 'url',
+  doi: 'doi',
+  type: 'type',
+  abstract: 'abstract',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PublicationScalarFieldEnum = (typeof PublicationScalarFieldEnum)[keyof typeof PublicationScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1964,6 +2061,7 @@ export type GlobalOmitConfig = {
   passwordResetToken?: Prisma.PasswordResetTokenOmit
   automationRun?: Prisma.AutomationRunOmit
   automationRunEvent?: Prisma.AutomationRunEventOmit
+  publication?: Prisma.PublicationOmit
 }
 
 /* Types for Logging */

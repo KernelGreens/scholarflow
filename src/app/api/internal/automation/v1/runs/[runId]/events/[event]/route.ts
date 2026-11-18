@@ -4,6 +4,7 @@ import prisma from '@/lib/prisma';
 import { hasProjectPermission } from '@/lib/auth/permissions';
 import { verifyCallbackSignature, getN8nSigningSecret, CALLBACK_EVENT_TYPES, type CallbackEventType } from '@/lib/automation/n8n';
 import { callbackEventSchema } from '@/lib/validation/automationRunSchema';
+import { ingestRunPublications } from '@/lib/application/publicationService';
 
 interface RouteContext {
   params: Promise<{ runId: string; event: string }>;
@@ -76,6 +77,11 @@ export async function POST(req: Request, context: RouteContext) {
         where: { id: runId },
         include: { events: true },
       });
+
+  if (nextStatus === 'COMPLETED') {
+    const ingestion = await ingestRunPublications(runId);
+    console.log('[api/internal/automation] publication ingestion', ingestion);
+  }
 
   await prisma.automationRunEvent.create({
     data: {

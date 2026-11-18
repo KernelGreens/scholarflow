@@ -53,6 +53,11 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
     include: { events: true },
   });
 
+  const publications = await prisma.publication.findMany({
+    where: { projectId, tenantId: project.tenantId },
+    orderBy: { createdAt: 'desc' },
+  });
+
   const activeModule = RESEARCH_MODULES.some((m) => m.name === module) ? module ?? 'Discovery' : 'Discovery';
   const moduleHref = (name: string) => `/w/${tenant.slug}/projects/${projectId}?module=${encodeURIComponent(name)}`;
 
@@ -159,6 +164,33 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
                     </pre>
                   </div>
                 ) : null}
+              </CardContent>
+            </Card>
+          ) : activeModule === 'Literature' ? (
+            <Card>
+              <CardHeader>
+                <CardTitle>Literature Library</CardTitle>
+                <CardDescription>
+                  Publications retrieved through discovery runs for this project.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                {publications.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">
+                    No publications yet. Run Discovery to retrieve literature for this project.
+                  </p>
+                ) : (
+                  <ul className="space-y-2">
+                    {publications.map((publication) => (
+                      <li key={publication.id} className="rounded-md border p-3">
+                        <p className="text-sm font-medium">{publication.title}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {[publication.year, publication.source, publication.doi].filter(Boolean).join(' · ')}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </CardContent>
             </Card>
           ) : (

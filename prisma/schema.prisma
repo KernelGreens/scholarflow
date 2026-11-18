@@ -115,6 +115,7 @@ model Tenant {
   invitations   Invitation[]
   projects      ResearchProject[]
   automationRuns AutomationRun[]
+  publications  Publication[]
 }
 
 model TenantMembership {
@@ -192,6 +193,7 @@ model ResearchProject {
   phases ResearchPhase[]
 
   automationRuns AutomationRun[]
+  publications Publication[]
 }
 
 model ResearchPhase {
@@ -243,6 +245,7 @@ model AutomationRun {
   tenant      Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   project     ResearchProject    @relation(fields: [projectId], references: [id], onDelete: Cascade)
   events      AutomationRunEvent[]
+  publications Publication[]
 
   @@index([tenantId, status])
 }
@@ -258,4 +261,31 @@ model AutomationRunEvent {
   run AutomationRun @relation(fields: [runId], references: [id], onDelete: Cascade)
 
   @@index([runId, timestamp])
+}
+
+// Publications retrieved through discovery runs (Phase 2 — Research Discovery).
+model Publication {
+  id         String   @id @default(cuid())
+  tenantId   String
+  projectId String
+  runId      String?
+  externalId String
+  title      String
+  authors    Json?
+  year       Int?
+  source     String?
+  url        String?
+  doi        String?
+  type       String?
+  abstract   String?
+  metadata   Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tenant    Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project  ResearchProject   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  run      AutomationRun?    @relation(fields: [runId], references: [id], onDelete: SetNull)
+
+  @@unique([projectId, externalId])
+  @@index([tenantId, projectId])
 }
