@@ -54,6 +54,14 @@ Status: **IN_PROGRESS** — Phase 2 acceptance path implemented end-to-end at co
 callbacks → persist → retrieve → render) and GREEN at build/test level; formal phase close-out follows once
 live n8n + AI credentials land and an actual discovery run completes.
 
+### Phase 2 slice status (this session)
+
+- [x] Slice 2.2 — AutomationRun + durable dispatch job + n8n webhook contract + callbacks + execution
+  progress UI (status, events timeline, persisted results rendering).
+- [x] Slice 2.3 — Publication ingestion + literature library persistence & retrieval (publications
+  ingested from completed runs via `ingestRunPublications`; literature library rendered).
+- [ ] Slice 2.4 — Phase 2 acceptance & validation (formal close-out; live n8n + AI execution pending).
+
 ---
 
 **Formal phase close-out: PENDING** — awaiting live n8n execution + AI retrieval for a completed discovery
