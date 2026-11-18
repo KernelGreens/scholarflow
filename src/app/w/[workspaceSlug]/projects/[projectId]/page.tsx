@@ -47,6 +47,11 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
     notFound();
   }
 
+  const latestRun = await prisma.automationRun.findFirst({
+    where: { projectId, tenantId: project.tenantId },
+    orderBy: { createdAt: 'desc' },
+  });
+
   const activeModule = RESEARCH_MODULES.some((m) => m.name === module) ? module ?? 'Discovery' : 'Discovery';
   const moduleHref = (name: string) => `/w/${tenant.slug}/projects/${projectId}?module=${encodeURIComponent(name)}`;
 
@@ -110,12 +115,30 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
                   Autonomous literature discovery for this project. AI outputs remain drafts until reviewed.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="flex flex-wrap items-center justify-between gap-4">
-                <div className="space-y-1">
-                  <p className="text-sm font-medium">Next action: Run Discovery</p>
-                  <p className="text-xs text-muted-foreground">Current phase: {project.phase}</p>
+              <CardContent className="space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium">Next action: Run Discovery</p>
+                    <p className="text-xs text-muted-foreground">Current phase: {project.phase}</p>
+                  </div>
+                  <RunDiscoveryButton projectId={project.id} />
                 </div>
-                <RunDiscoveryButton projectId={project.id} />
+                {latestRun ? (
+                  <div className="border-t pt-3 text-xs text-muted-foreground">
+                    Latest run{' '}
+                    <span className="font-medium text-foreground">{latestRun.status}</span>
+                    {latestRun.startedAt ? (
+                      <>
+                        {' · '}started {new Date(latestRun.startedAt).toISOString()}
+                      </>
+                    ) : null}
+                    {latestRun.completedAt ? (
+                      <>
+                        {' · '}completed {new Date(latestRun.completedAt).toISOString()}
+                      </>
+                    ) : null}
+                  </div>
+                ) : null}
               </CardContent>
             </Card>
           ) : (

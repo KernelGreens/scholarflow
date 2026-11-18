@@ -44,6 +44,7 @@ export type AutomationRunMinAggregateOutputType = {
   correlationId: string | null
   idempotencyKey: string | null
   requestedBy: string | null
+  createdAt: Date | null
   startedAt: Date | null
   completedAt: Date | null
 }
@@ -58,6 +59,7 @@ export type AutomationRunMaxAggregateOutputType = {
   correlationId: string | null
   idempotencyKey: string | null
   requestedBy: string | null
+  createdAt: Date | null
   startedAt: Date | null
   completedAt: Date | null
 }
@@ -72,6 +74,7 @@ export type AutomationRunCountAggregateOutputType = {
   correlationId: number
   idempotencyKey: number
   requestedBy: number
+  createdAt: number
   startedAt: number
   completedAt: number
   usage: number
@@ -97,6 +100,7 @@ export type AutomationRunMinAggregateInputType = {
   correlationId?: true
   idempotencyKey?: true
   requestedBy?: true
+  createdAt?: true
   startedAt?: true
   completedAt?: true
 }
@@ -111,6 +115,7 @@ export type AutomationRunMaxAggregateInputType = {
   correlationId?: true
   idempotencyKey?: true
   requestedBy?: true
+  createdAt?: true
   startedAt?: true
   completedAt?: true
 }
@@ -125,6 +130,7 @@ export type AutomationRunCountAggregateInputType = {
   correlationId?: true
   idempotencyKey?: true
   requestedBy?: true
+  createdAt?: true
   startedAt?: true
   completedAt?: true
   usage?: true
@@ -227,6 +233,7 @@ export type AutomationRunGroupByOutputType = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt: Date
   startedAt: Date | null
   completedAt: Date | null
   usage: runtime.JsonValue | null
@@ -265,6 +272,7 @@ export type AutomationRunWhereInput = {
   correlationId?: Prisma.StringFilter<"AutomationRun"> | string
   idempotencyKey?: Prisma.StringFilter<"AutomationRun"> | string
   requestedBy?: Prisma.StringFilter<"AutomationRun"> | string
+  createdAt?: Prisma.DateTimeFilter<"AutomationRun"> | Date | string
   startedAt?: Prisma.DateTimeNullableFilter<"AutomationRun"> | Date | string | null
   completedAt?: Prisma.DateTimeNullableFilter<"AutomationRun"> | Date | string | null
   usage?: Prisma.JsonNullableFilter<"AutomationRun">
@@ -283,6 +291,7 @@ export type AutomationRunOrderByWithRelationInput = {
   correlationId?: Prisma.SortOrder
   idempotencyKey?: Prisma.SortOrder
   requestedBy?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   startedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   usage?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -304,6 +313,7 @@ export type AutomationRunWhereUniqueInput = Prisma.AtLeast<{
   workflowVersion?: Prisma.IntFilter<"AutomationRun"> | number
   status?: Prisma.EnumAutomationRunStatusFilter<"AutomationRun"> | $Enums.AutomationRunStatus
   requestedBy?: Prisma.StringFilter<"AutomationRun"> | string
+  createdAt?: Prisma.DateTimeFilter<"AutomationRun"> | Date | string
   startedAt?: Prisma.DateTimeNullableFilter<"AutomationRun"> | Date | string | null
   completedAt?: Prisma.DateTimeNullableFilter<"AutomationRun"> | Date | string | null
   usage?: Prisma.JsonNullableFilter<"AutomationRun">
@@ -322,6 +332,7 @@ export type AutomationRunOrderByWithAggregationInput = {
   correlationId?: Prisma.SortOrder
   idempotencyKey?: Prisma.SortOrder
   requestedBy?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   startedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   usage?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -345,6 +356,7 @@ export type AutomationRunScalarWhereWithAggregatesInput = {
   correlationId?: Prisma.StringWithAggregatesFilter<"AutomationRun"> | string
   idempotencyKey?: Prisma.StringWithAggregatesFilter<"AutomationRun"> | string
   requestedBy?: Prisma.StringWithAggregatesFilter<"AutomationRun"> | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"AutomationRun"> | Date | string
   startedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"AutomationRun"> | Date | string | null
   completedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"AutomationRun"> | Date | string | null
   usage?: Prisma.JsonNullableWithAggregatesFilter<"AutomationRun">
@@ -358,6 +370,7 @@ export type AutomationRunCreateInput = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt?: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -376,6 +389,7 @@ export type AutomationRunUncheckedCreateInput = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt?: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -390,6 +404,7 @@ export type AutomationRunUpdateInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -408,6 +423,7 @@ export type AutomationRunUncheckedUpdateInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -424,6 +440,7 @@ export type AutomationRunCreateManyInput = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt?: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -437,6 +454,7 @@ export type AutomationRunUpdateManyMutationInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -452,6 +470,7 @@ export type AutomationRunUncheckedUpdateManyInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -477,6 +496,7 @@ export type AutomationRunCountOrderByAggregateInput = {
   correlationId?: Prisma.SortOrder
   idempotencyKey?: Prisma.SortOrder
   requestedBy?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   startedAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
   usage?: Prisma.SortOrder
@@ -496,6 +516,7 @@ export type AutomationRunMaxOrderByAggregateInput = {
   correlationId?: Prisma.SortOrder
   idempotencyKey?: Prisma.SortOrder
   requestedBy?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   startedAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
 }
@@ -510,6 +531,7 @@ export type AutomationRunMinOrderByAggregateInput = {
   correlationId?: Prisma.SortOrder
   idempotencyKey?: Prisma.SortOrder
   requestedBy?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
   startedAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
 }
@@ -633,6 +655,7 @@ export type AutomationRunCreateWithoutTenantInput = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt?: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -649,6 +672,7 @@ export type AutomationRunUncheckedCreateWithoutTenantInput = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt?: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -694,6 +718,7 @@ export type AutomationRunScalarWhereInput = {
   correlationId?: Prisma.StringFilter<"AutomationRun"> | string
   idempotencyKey?: Prisma.StringFilter<"AutomationRun"> | string
   requestedBy?: Prisma.StringFilter<"AutomationRun"> | string
+  createdAt?: Prisma.DateTimeFilter<"AutomationRun"> | Date | string
   startedAt?: Prisma.DateTimeNullableFilter<"AutomationRun"> | Date | string | null
   completedAt?: Prisma.DateTimeNullableFilter<"AutomationRun"> | Date | string | null
   usage?: Prisma.JsonNullableFilter<"AutomationRun">
@@ -707,6 +732,7 @@ export type AutomationRunCreateWithoutProjectInput = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt?: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -723,6 +749,7 @@ export type AutomationRunUncheckedCreateWithoutProjectInput = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt?: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -763,6 +790,7 @@ export type AutomationRunCreateWithoutEventsInput = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt?: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -780,6 +808,7 @@ export type AutomationRunUncheckedCreateWithoutEventsInput = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt?: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -809,6 +838,7 @@ export type AutomationRunUpdateWithoutEventsInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -826,6 +856,7 @@ export type AutomationRunUncheckedUpdateWithoutEventsInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -840,6 +871,7 @@ export type AutomationRunCreateManyTenantInput = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt?: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -853,6 +885,7 @@ export type AutomationRunUpdateWithoutTenantInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -869,6 +902,7 @@ export type AutomationRunUncheckedUpdateWithoutTenantInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -884,6 +918,7 @@ export type AutomationRunUncheckedUpdateManyWithoutTenantInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -898,6 +933,7 @@ export type AutomationRunCreateManyProjectInput = {
   correlationId: string
   idempotencyKey: string
   requestedBy: string
+  createdAt?: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -911,6 +947,7 @@ export type AutomationRunUpdateWithoutProjectInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -927,6 +964,7 @@ export type AutomationRunUncheckedUpdateWithoutProjectInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -942,6 +980,7 @@ export type AutomationRunUncheckedUpdateManyWithoutProjectInput = {
   correlationId?: Prisma.StringFieldUpdateOperationsInput | string
   idempotencyKey?: Prisma.StringFieldUpdateOperationsInput | string
   requestedBy?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usage?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -988,6 +1027,7 @@ export type AutomationRunSelect<ExtArgs extends runtime.Types.Extensions.Interna
   correlationId?: boolean
   idempotencyKey?: boolean
   requestedBy?: boolean
+  createdAt?: boolean
   startedAt?: boolean
   completedAt?: boolean
   usage?: boolean
@@ -1007,6 +1047,7 @@ export type AutomationRunSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   correlationId?: boolean
   idempotencyKey?: boolean
   requestedBy?: boolean
+  createdAt?: boolean
   startedAt?: boolean
   completedAt?: boolean
   usage?: boolean
@@ -1024,6 +1065,7 @@ export type AutomationRunSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   correlationId?: boolean
   idempotencyKey?: boolean
   requestedBy?: boolean
+  createdAt?: boolean
   startedAt?: boolean
   completedAt?: boolean
   usage?: boolean
@@ -1041,12 +1083,13 @@ export type AutomationRunSelectScalar = {
   correlationId?: boolean
   idempotencyKey?: boolean
   requestedBy?: boolean
+  createdAt?: boolean
   startedAt?: boolean
   completedAt?: boolean
   usage?: boolean
 }
 
-export type AutomationRunOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "projectId" | "workflowKey" | "workflowVersion" | "status" | "correlationId" | "idempotencyKey" | "requestedBy" | "startedAt" | "completedAt" | "usage", ExtArgs["result"]["automationRun"]>
+export type AutomationRunOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "projectId" | "workflowKey" | "workflowVersion" | "status" | "correlationId" | "idempotencyKey" | "requestedBy" | "createdAt" | "startedAt" | "completedAt" | "usage", ExtArgs["result"]["automationRun"]>
 export type AutomationRunInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   project?: boolean | Prisma.ResearchProjectDefaultArgs<ExtArgs>
@@ -1079,6 +1122,7 @@ export type $AutomationRunPayload<ExtArgs extends runtime.Types.Extensions.Inter
     correlationId: string
     idempotencyKey: string
     requestedBy: string
+    createdAt: Date
     startedAt: Date | null
     completedAt: Date | null
     usage: runtime.JsonValue | null
@@ -1517,6 +1561,7 @@ export interface AutomationRunFieldRefs {
   readonly correlationId: Prisma.FieldRef<"AutomationRun", 'String'>
   readonly idempotencyKey: Prisma.FieldRef<"AutomationRun", 'String'>
   readonly requestedBy: Prisma.FieldRef<"AutomationRun", 'String'>
+  readonly createdAt: Prisma.FieldRef<"AutomationRun", 'DateTime'>
   readonly startedAt: Prisma.FieldRef<"AutomationRun", 'DateTime'>
   readonly completedAt: Prisma.FieldRef<"AutomationRun", 'DateTime'>
   readonly usage: Prisma.FieldRef<"AutomationRun", 'Json'>

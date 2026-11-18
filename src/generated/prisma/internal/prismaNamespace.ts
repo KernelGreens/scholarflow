@@ -1592,6 +1592,7 @@ export const AutomationRunScalarFieldEnum = {
   correlationId: 'correlationId',
   idempotencyKey: 'idempotencyKey',
   requestedBy: 'requestedBy',
+  createdAt: 'createdAt',
   startedAt: 'startedAt',
   completedAt: 'completedAt',
   usage: 'usage'

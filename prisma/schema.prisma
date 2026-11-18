@@ -234,6 +234,7 @@ model AutomationRun {
   correlationId    String               @unique
   idempotencyKey  String               @unique
   requestedBy      String
+  createdAt        DateTime @default(now())
   startedAt        DateTime?
   completedAt      DateTime?
   usage            Json?
