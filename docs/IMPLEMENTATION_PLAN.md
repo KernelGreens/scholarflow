@@ -35,8 +35,15 @@ Exit criteria: above met with executed tests; Phase 1 report produced.
 
 ## Phase 2 — Research Discovery MVP
 
+Status: IN_PROGRESS
+
 Goal: domain configuration, search strategy, n8n dispatch, publication ingestion,
 domain summary generation/persistence, human review.
+
+Acceptance criteria:
+- A researcher can launch an authenticated exploratory discovery run and retrieve persisted results.
+
+Exit criteria: above met with executed tests; Phase 2 report produced — see `docs/PHASE2_REPORT.md`.
 
 ## Phase 3 — Evidence and research positioning
 
