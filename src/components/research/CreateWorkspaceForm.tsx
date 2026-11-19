@@ -41,7 +41,7 @@ export function CreateWorkspaceForm({ onCreated }: CreateWorkspaceFormProps) {
       return;
     }
 
-    router.push(`/w/${data.tenant!.slug}/projects`);
+    router.push(`/w/${data.tenant!.slug}/starting-point`);
     router.refresh();
   }
 

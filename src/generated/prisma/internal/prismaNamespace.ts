@@ -403,6 +403,7 @@ export const ModelName = {
   VerificationToken: 'VerificationToken',
   Tenant: 'Tenant',
   TenantMembership: 'TenantMembership',
+  IdeationSession: 'IdeationSession',
   Invitation: 'Invitation',
   ProjectMembership: 'ProjectMembership',
   ResearchProject: 'ResearchProject',
@@ -428,7 +429,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "account" | "session" | "verificationToken" | "tenant" | "tenantMembership" | "invitation" | "projectMembership" | "researchProject" | "researchPhase" | "passwordResetToken" | "automationRun" | "automationRunEvent" | "publication" | "domainSummary" | "candidateResearchTopic"
+    modelProps: "user" | "account" | "session" | "verificationToken" | "tenant" | "tenantMembership" | "ideationSession" | "invitation" | "projectMembership" | "researchProject" | "researchPhase" | "passwordResetToken" | "automationRun" | "automationRunEvent" | "publication" | "domainSummary" | "candidateResearchTopic"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -873,6 +874,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.TenantMembershipCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.TenantMembershipCountAggregateOutputType> | number
+        }
+      }
+    }
+    IdeationSession: {
+      payload: Prisma.$IdeationSessionPayload<ExtArgs>
+      fields: Prisma.IdeationSessionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.IdeationSessionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IdeationSessionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.IdeationSessionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IdeationSessionPayload>
+        }
+        findFirst: {
+          args: Prisma.IdeationSessionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IdeationSessionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.IdeationSessionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IdeationSessionPayload>
+        }
+        findMany: {
+          args: Prisma.IdeationSessionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IdeationSessionPayload>[]
+        }
+        create: {
+          args: Prisma.IdeationSessionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IdeationSessionPayload>
+        }
+        createMany: {
+          args: Prisma.IdeationSessionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.IdeationSessionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IdeationSessionPayload>[]
+        }
+        delete: {
+          args: Prisma.IdeationSessionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IdeationSessionPayload>
+        }
+        update: {
+          args: Prisma.IdeationSessionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IdeationSessionPayload>
+        }
+        deleteMany: {
+          args: Prisma.IdeationSessionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.IdeationSessionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.IdeationSessionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IdeationSessionPayload>[]
+        }
+        upsert: {
+          args: Prisma.IdeationSessionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IdeationSessionPayload>
+        }
+        aggregate: {
+          args: Prisma.IdeationSessionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateIdeationSession>
+        }
+        groupBy: {
+          args: Prisma.IdeationSessionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IdeationSessionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.IdeationSessionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IdeationSessionCountAggregateOutputType> | number
         }
       }
     }
@@ -1728,6 +1803,21 @@ export const TenantMembershipScalarFieldEnum = {
 export type TenantMembershipScalarFieldEnum = (typeof TenantMembershipScalarFieldEnum)[keyof typeof TenantMembershipScalarFieldEnum]
 
 
+export const IdeationSessionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  ownerId: 'ownerId',
+  interest: 'interest',
+  motivation: 'motivation',
+  context: 'context',
+  desiredOutcome: 'desiredOutcome',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IdeationSessionScalarFieldEnum = (typeof IdeationSessionScalarFieldEnum)[keyof typeof IdeationSessionScalarFieldEnum]
+
+
 export const InvitationScalarFieldEnum = {
   id: 'id',
   tenantId: 'tenantId',
@@ -2008,6 +2098,20 @@ export type ListEnumTenantRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$P
 
 
 /**
+ * Reference to a field of type 'Json'
+ */
+export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'QueryMode'
+ */
+export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+/**
  * Reference to a field of type 'ProjectStatus'
  */
 export type EnumProjectStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProjectStatus'>
@@ -2060,20 +2164,6 @@ export type EnumAutomationRunStatusFieldRefInput<$PrismaModel> = FieldRefInputTy
  * Reference to a field of type 'AutomationRunStatus[]'
  */
 export type ListEnumAutomationRunStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AutomationRunStatus[]'>
-    
-
-
-/**
- * Reference to a field of type 'Json'
- */
-export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-/**
- * Reference to a field of type 'QueryMode'
- */
-export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -2247,6 +2337,7 @@ export type GlobalOmitConfig = {
   verificationToken?: Prisma.VerificationTokenOmit
   tenant?: Prisma.TenantOmit
   tenantMembership?: Prisma.TenantMembershipOmit
+  ideationSession?: Prisma.IdeationSessionOmit
   invitation?: Prisma.InvitationOmit
   projectMembership?: Prisma.ProjectMembershipOmit
   researchProject?: Prisma.ResearchProjectOmit

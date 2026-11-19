@@ -57,6 +57,7 @@ export const ModelName = {
   VerificationToken: 'VerificationToken',
   Tenant: 'Tenant',
   TenantMembership: 'TenantMembership',
+  IdeationSession: 'IdeationSession',
   Invitation: 'Invitation',
   ProjectMembership: 'ProjectMembership',
   ResearchProject: 'ResearchProject',
@@ -156,6 +157,21 @@ export const TenantMembershipScalarFieldEnum = {
 } as const
 
 export type TenantMembershipScalarFieldEnum = (typeof TenantMembershipScalarFieldEnum)[keyof typeof TenantMembershipScalarFieldEnum]
+
+
+export const IdeationSessionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  ownerId: 'ownerId',
+  interest: 'interest',
+  motivation: 'motivation',
+  context: 'context',
+  desiredOutcome: 'desiredOutcome',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IdeationSessionScalarFieldEnum = (typeof IdeationSessionScalarFieldEnum)[keyof typeof IdeationSessionScalarFieldEnum]
 
 
 export const InvitationScalarFieldEnum = {

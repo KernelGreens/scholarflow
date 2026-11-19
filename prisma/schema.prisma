@@ -68,6 +68,7 @@ model User {
   projectMemberships ProjectMembership[]
   createdBy         ResearchProject[]
   passwordResetTokens PasswordResetToken[]
+  ideationSessions IdeationSession[]
 }
 
 model Account {
@@ -118,6 +119,7 @@ model Tenant {
   publications  Publication[]
   domainSummaries DomainSummary[]
   candidateResearchTopics CandidateResearchTopic[]
+  ideationSessions IdeationSession[]
 }
 
 model TenantMembership {
@@ -132,6 +134,23 @@ model TenantMembership {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, userId])
+}
+
+model IdeationSession {
+  id         String   @id @default(cuid())
+  tenantId   String
+  ownerId    String
+  interest   String
+  motivation String?
+  context    Json?
+  desiredOutcome Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, ownerId])
 }
 
 model Invitation {

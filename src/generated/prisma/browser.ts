@@ -48,6 +48,11 @@ export type Tenant = Prisma.TenantModel
  */
 export type TenantMembership = Prisma.TenantMembershipModel
 /**
+ * Model IdeationSession
+ * 
+ */
+export type IdeationSession = Prisma.IdeationSessionModel
+/**
  * Model Invitation
  * 
  */

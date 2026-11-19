@@ -212,6 +212,7 @@ export type UserWhereInput = {
   projectMemberships?: Prisma.ProjectMembershipListRelationFilter
   createdBy?: Prisma.ResearchProjectListRelationFilter
   passwordResetTokens?: Prisma.PasswordResetTokenListRelationFilter
+  ideationSessions?: Prisma.IdeationSessionListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -229,6 +230,7 @@ export type UserOrderByWithRelationInput = {
   projectMemberships?: Prisma.ProjectMembershipOrderByRelationAggregateInput
   createdBy?: Prisma.ResearchProjectOrderByRelationAggregateInput
   passwordResetTokens?: Prisma.PasswordResetTokenOrderByRelationAggregateInput
+  ideationSessions?: Prisma.IdeationSessionOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -249,6 +251,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   projectMemberships?: Prisma.ProjectMembershipListRelationFilter
   createdBy?: Prisma.ResearchProjectListRelationFilter
   passwordResetTokens?: Prisma.PasswordResetTokenListRelationFilter
+  ideationSessions?: Prisma.IdeationSessionListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -294,6 +297,7 @@ export type UserCreateInput = {
   projectMemberships?: Prisma.ProjectMembershipCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectCreateNestedManyWithoutCreatedByInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionCreateNestedManyWithoutOwnerInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -311,6 +315,7 @@ export type UserUncheckedCreateInput = {
   projectMemberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutCreatedByInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedCreateNestedManyWithoutOwnerInput
 }
 
 export type UserUpdateInput = {
@@ -328,6 +333,7 @@ export type UserUpdateInput = {
   projectMemberships?: Prisma.ProjectMembershipUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUpdateManyWithoutCreatedByNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -345,6 +351,7 @@ export type UserUncheckedUpdateInput = {
   projectMemberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUncheckedUpdateManyWithoutCreatedByNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -476,6 +483,20 @@ export type UserUpdateOneRequiredWithoutTenantMembershipsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutTenantMembershipsInput, Prisma.UserUpdateWithoutTenantMembershipsInput>, Prisma.UserUncheckedUpdateWithoutTenantMembershipsInput>
 }
 
+export type UserCreateNestedOneWithoutIdeationSessionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutIdeationSessionsInput, Prisma.UserUncheckedCreateWithoutIdeationSessionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutIdeationSessionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutIdeationSessionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutIdeationSessionsInput, Prisma.UserUncheckedCreateWithoutIdeationSessionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutIdeationSessionsInput
+  upsert?: Prisma.UserUpsertWithoutIdeationSessionsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutIdeationSessionsInput, Prisma.UserUpdateWithoutIdeationSessionsInput>, Prisma.UserUncheckedUpdateWithoutIdeationSessionsInput>
+}
+
 export type UserCreateNestedOneWithoutProjectMembershipsInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutProjectMembershipsInput, Prisma.UserUncheckedCreateWithoutProjectMembershipsInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutProjectMembershipsInput
@@ -532,6 +553,7 @@ export type UserCreateWithoutAccountsInput = {
   projectMemberships?: Prisma.ProjectMembershipCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectCreateNestedManyWithoutCreatedByInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionCreateNestedManyWithoutOwnerInput
 }
 
 export type UserUncheckedCreateWithoutAccountsInput = {
@@ -548,6 +570,7 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   projectMemberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutCreatedByInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedCreateNestedManyWithoutOwnerInput
 }
 
 export type UserCreateOrConnectWithoutAccountsInput = {
@@ -580,6 +603,7 @@ export type UserUpdateWithoutAccountsInput = {
   projectMemberships?: Prisma.ProjectMembershipUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUpdateManyWithoutCreatedByNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -596,6 +620,7 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   projectMemberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUncheckedUpdateManyWithoutCreatedByNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserCreateWithoutSessionsInput = {
@@ -612,6 +637,7 @@ export type UserCreateWithoutSessionsInput = {
   projectMemberships?: Prisma.ProjectMembershipCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectCreateNestedManyWithoutCreatedByInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionCreateNestedManyWithoutOwnerInput
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
@@ -628,6 +654,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   projectMemberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutCreatedByInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedCreateNestedManyWithoutOwnerInput
 }
 
 export type UserCreateOrConnectWithoutSessionsInput = {
@@ -660,6 +687,7 @@ export type UserUpdateWithoutSessionsInput = {
   projectMemberships?: Prisma.ProjectMembershipUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUpdateManyWithoutCreatedByNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -676,6 +704,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   projectMemberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUncheckedUpdateManyWithoutCreatedByNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserCreateWithoutTenantMembershipsInput = {
@@ -692,6 +721,7 @@ export type UserCreateWithoutTenantMembershipsInput = {
   projectMemberships?: Prisma.ProjectMembershipCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectCreateNestedManyWithoutCreatedByInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionCreateNestedManyWithoutOwnerInput
 }
 
 export type UserUncheckedCreateWithoutTenantMembershipsInput = {
@@ -708,6 +738,7 @@ export type UserUncheckedCreateWithoutTenantMembershipsInput = {
   projectMemberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutCreatedByInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedCreateNestedManyWithoutOwnerInput
 }
 
 export type UserCreateOrConnectWithoutTenantMembershipsInput = {
@@ -740,6 +771,7 @@ export type UserUpdateWithoutTenantMembershipsInput = {
   projectMemberships?: Prisma.ProjectMembershipUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUpdateManyWithoutCreatedByNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTenantMembershipsInput = {
@@ -753,6 +785,91 @@ export type UserUncheckedUpdateWithoutTenantMembershipsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  projectMemberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutUserNestedInput
+  createdBy?: Prisma.ResearchProjectUncheckedUpdateManyWithoutCreatedByNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedUpdateManyWithoutOwnerNestedInput
+}
+
+export type UserCreateWithoutIdeationSessionsInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  passwordHash?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  tenantMemberships?: Prisma.TenantMembershipCreateNestedManyWithoutUserInput
+  projectMemberships?: Prisma.ProjectMembershipCreateNestedManyWithoutUserInput
+  createdBy?: Prisma.ResearchProjectCreateNestedManyWithoutCreatedByInput
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutIdeationSessionsInput = {
+  id?: string
+  name?: string | null
+  email: string
+  emailVerified?: Date | string | null
+  image?: string | null
+  passwordHash?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  tenantMemberships?: Prisma.TenantMembershipUncheckedCreateNestedManyWithoutUserInput
+  projectMemberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutUserInput
+  createdBy?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutCreatedByInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutIdeationSessionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutIdeationSessionsInput, Prisma.UserUncheckedCreateWithoutIdeationSessionsInput>
+}
+
+export type UserUpsertWithoutIdeationSessionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutIdeationSessionsInput, Prisma.UserUncheckedUpdateWithoutIdeationSessionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutIdeationSessionsInput, Prisma.UserUncheckedCreateWithoutIdeationSessionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutIdeationSessionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutIdeationSessionsInput, Prisma.UserUncheckedUpdateWithoutIdeationSessionsInput>
+}
+
+export type UserUpdateWithoutIdeationSessionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  tenantMemberships?: Prisma.TenantMembershipUpdateManyWithoutUserNestedInput
+  projectMemberships?: Prisma.ProjectMembershipUpdateManyWithoutUserNestedInput
+  createdBy?: Prisma.ResearchProjectUpdateManyWithoutCreatedByNestedInput
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutIdeationSessionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passwordHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  tenantMemberships?: Prisma.TenantMembershipUncheckedUpdateManyWithoutUserNestedInput
   projectMemberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUncheckedUpdateManyWithoutCreatedByNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
@@ -772,6 +889,7 @@ export type UserCreateWithoutProjectMembershipsInput = {
   tenantMemberships?: Prisma.TenantMembershipCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectCreateNestedManyWithoutCreatedByInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionCreateNestedManyWithoutOwnerInput
 }
 
 export type UserUncheckedCreateWithoutProjectMembershipsInput = {
@@ -788,6 +906,7 @@ export type UserUncheckedCreateWithoutProjectMembershipsInput = {
   tenantMemberships?: Prisma.TenantMembershipUncheckedCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutCreatedByInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedCreateNestedManyWithoutOwnerInput
 }
 
 export type UserCreateOrConnectWithoutProjectMembershipsInput = {
@@ -820,6 +939,7 @@ export type UserUpdateWithoutProjectMembershipsInput = {
   tenantMemberships?: Prisma.TenantMembershipUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUpdateManyWithoutCreatedByNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserUncheckedUpdateWithoutProjectMembershipsInput = {
@@ -836,6 +956,7 @@ export type UserUncheckedUpdateWithoutProjectMembershipsInput = {
   tenantMemberships?: Prisma.TenantMembershipUncheckedUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUncheckedUpdateManyWithoutCreatedByNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserCreateWithoutCreatedByInput = {
@@ -852,6 +973,7 @@ export type UserCreateWithoutCreatedByInput = {
   tenantMemberships?: Prisma.TenantMembershipCreateNestedManyWithoutUserInput
   projectMemberships?: Prisma.ProjectMembershipCreateNestedManyWithoutUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionCreateNestedManyWithoutOwnerInput
 }
 
 export type UserUncheckedCreateWithoutCreatedByInput = {
@@ -868,6 +990,7 @@ export type UserUncheckedCreateWithoutCreatedByInput = {
   tenantMemberships?: Prisma.TenantMembershipUncheckedCreateNestedManyWithoutUserInput
   projectMemberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutUserInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedCreateNestedManyWithoutOwnerInput
 }
 
 export type UserCreateOrConnectWithoutCreatedByInput = {
@@ -900,6 +1023,7 @@ export type UserUpdateWithoutCreatedByInput = {
   tenantMemberships?: Prisma.TenantMembershipUpdateManyWithoutUserNestedInput
   projectMemberships?: Prisma.ProjectMembershipUpdateManyWithoutUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCreatedByInput = {
@@ -916,6 +1040,7 @@ export type UserUncheckedUpdateWithoutCreatedByInput = {
   tenantMemberships?: Prisma.TenantMembershipUncheckedUpdateManyWithoutUserNestedInput
   projectMemberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutUserNestedInput
   passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserCreateWithoutPasswordResetTokensInput = {
@@ -932,6 +1057,7 @@ export type UserCreateWithoutPasswordResetTokensInput = {
   tenantMemberships?: Prisma.TenantMembershipCreateNestedManyWithoutUserInput
   projectMemberships?: Prisma.ProjectMembershipCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectCreateNestedManyWithoutCreatedByInput
+  ideationSessions?: Prisma.IdeationSessionCreateNestedManyWithoutOwnerInput
 }
 
 export type UserUncheckedCreateWithoutPasswordResetTokensInput = {
@@ -948,6 +1074,7 @@ export type UserUncheckedCreateWithoutPasswordResetTokensInput = {
   tenantMemberships?: Prisma.TenantMembershipUncheckedCreateNestedManyWithoutUserInput
   projectMemberships?: Prisma.ProjectMembershipUncheckedCreateNestedManyWithoutUserInput
   createdBy?: Prisma.ResearchProjectUncheckedCreateNestedManyWithoutCreatedByInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedCreateNestedManyWithoutOwnerInput
 }
 
 export type UserCreateOrConnectWithoutPasswordResetTokensInput = {
@@ -980,6 +1107,7 @@ export type UserUpdateWithoutPasswordResetTokensInput = {
   tenantMemberships?: Prisma.TenantMembershipUpdateManyWithoutUserNestedInput
   projectMemberships?: Prisma.ProjectMembershipUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUpdateManyWithoutCreatedByNestedInput
+  ideationSessions?: Prisma.IdeationSessionUpdateManyWithoutOwnerNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPasswordResetTokensInput = {
@@ -996,6 +1124,7 @@ export type UserUncheckedUpdateWithoutPasswordResetTokensInput = {
   tenantMemberships?: Prisma.TenantMembershipUncheckedUpdateManyWithoutUserNestedInput
   projectMemberships?: Prisma.ProjectMembershipUncheckedUpdateManyWithoutUserNestedInput
   createdBy?: Prisma.ResearchProjectUncheckedUpdateManyWithoutCreatedByNestedInput
+  ideationSessions?: Prisma.IdeationSessionUncheckedUpdateManyWithoutOwnerNestedInput
 }
 
 
@@ -1010,6 +1139,7 @@ export type UserCountOutputType = {
   projectMemberships: number
   createdBy: number
   passwordResetTokens: number
+  ideationSessions: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1019,6 +1149,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   projectMemberships?: boolean | UserCountOutputTypeCountProjectMembershipsArgs
   createdBy?: boolean | UserCountOutputTypeCountCreatedByArgs
   passwordResetTokens?: boolean | UserCountOutputTypeCountPasswordResetTokensArgs
+  ideationSessions?: boolean | UserCountOutputTypeCountIdeationSessionsArgs
 }
 
 /**
@@ -1073,6 +1204,13 @@ export type UserCountOutputTypeCountPasswordResetTokensArgs<ExtArgs extends runt
   where?: Prisma.PasswordResetTokenWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountIdeationSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.IdeationSessionWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1089,6 +1227,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   projectMemberships?: boolean | Prisma.User$projectMembershipsArgs<ExtArgs>
   createdBy?: boolean | Prisma.User$createdByArgs<ExtArgs>
   passwordResetTokens?: boolean | Prisma.User$passwordResetTokensArgs<ExtArgs>
+  ideationSessions?: boolean | Prisma.User$ideationSessionsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1133,6 +1272,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   projectMemberships?: boolean | Prisma.User$projectMembershipsArgs<ExtArgs>
   createdBy?: boolean | Prisma.User$createdByArgs<ExtArgs>
   passwordResetTokens?: boolean | Prisma.User$passwordResetTokensArgs<ExtArgs>
+  ideationSessions?: boolean | Prisma.User$ideationSessionsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1147,6 +1287,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     projectMemberships: Prisma.$ProjectMembershipPayload<ExtArgs>[]
     createdBy: Prisma.$ResearchProjectPayload<ExtArgs>[]
     passwordResetTokens: Prisma.$PasswordResetTokenPayload<ExtArgs>[]
+    ideationSessions: Prisma.$IdeationSessionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1557,6 +1698,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   projectMemberships<T extends Prisma.User$projectMembershipsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$projectMembershipsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProjectMembershipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   createdBy<T extends Prisma.User$createdByArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$createdByArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ResearchProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   passwordResetTokens<T extends Prisma.User$passwordResetTokensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$passwordResetTokensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  ideationSessions<T extends Prisma.User$ideationSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$ideationSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$IdeationSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2128,6 +2270,30 @@ export type User$passwordResetTokensArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   distinct?: Prisma.PasswordResetTokenScalarFieldEnum | Prisma.PasswordResetTokenScalarFieldEnum[]
+}
+
+/**
+ * User.ideationSessions
+ */
+export type User$ideationSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the IdeationSession
+   */
+  select?: Prisma.IdeationSessionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the IdeationSession
+   */
+  omit?: Prisma.IdeationSessionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.IdeationSessionInclude<ExtArgs> | null
+  where?: Prisma.IdeationSessionWhereInput
+  orderBy?: Prisma.IdeationSessionOrderByWithRelationInput | Prisma.IdeationSessionOrderByWithRelationInput[]
+  cursor?: Prisma.IdeationSessionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.IdeationSessionScalarFieldEnum | Prisma.IdeationSessionScalarFieldEnum[]
 }
 
 /**
