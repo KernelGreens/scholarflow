@@ -67,7 +67,7 @@ criteria, and acceptance tests. The master implementation plan lives in
 ### Slice 2.3 — Publication ingestion + literature library + domain summary persistence — DONE
   (publications + literature library + domain summaries delivered; candidate research topics delivered
   as Phase 3 exploratory discovery increment)
-### Slice 2.4 — Phase 2 acceptance & validation — PENDING (awaiting live n8n + AI execution)
+### Slice 2.4 — Phase 2 acceptance & validation — IN PROGRESS (formal close pending live n8n + AI execution)
 
 ---
 

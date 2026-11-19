@@ -61,7 +61,6 @@ live n8n + AI credentials land and an actual discovery run completes.
 - [x] Slice 2.3 — Publication ingestion + literature library + domain summary persistence + candidate
   research topic ingestion (artifacts from completed runs via services + callback wiring).
 - [ ] Slice 2.4 — Phase 2 acceptance & validation (formal close-out; live n8n + AI execution pending).
-
 ---
 
 **Formal phase close-out: PENDING** — awaiting live n8n execution + AI retrieval for a completed discovery
