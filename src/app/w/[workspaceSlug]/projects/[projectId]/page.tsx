@@ -86,9 +86,14 @@ export default async function ProjectDetailPage({ params, searchParams }: Projec
       <main className="min-w-0 flex-1 px-4 py-12">
         <div className="mx-auto max-w-4xl">
           <div className="mb-6">
-            <Link href={`/w/${tenant.slug}/projects`} className="text-sm text-muted-foreground hover:underline">
-              ← Back to projects
-            </Link>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href={`/w/${tenant.slug}/projects`} className="text-sm text-muted-foreground hover:underline">
+                ← Back to projects
+              </Link>
+              <Link href="/workspaces" className="text-sm text-muted-foreground hover:underline">
+                ← Back to workspaces
+              </Link>
+            </div>
             <h1 className="mt-2 text-2xl font-semibold tracking-tight">{project.title}</h1>
             {project.shortTitle ? <p className="text-sm text-muted-foreground">{project.shortTitle}</p> : null}
           </div>
